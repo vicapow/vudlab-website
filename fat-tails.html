@@ -609,6 +609,7 @@
           .data(plotData1, function(d){return d; });
         
         
+
         circle.enter()
           .append('circle')
           .attr({
@@ -624,7 +625,7 @@
         circle.transition().duration(dur).ease('linear')
           .attr("cx", function(d,i){return x2(i -1);})
           .attr("r", "3px");
-        
+       
         circle.exit().remove();
         
         path1
@@ -823,11 +824,15 @@
             redraw(Number(d3.select(this).attr('d')));
           })
           .on('dragend', function(){
-            redraw(Number(d3.select(this).attr('d')));
-           brownData1 = d3.range(50).map(function(){return 0;})
-           brownData2 = d3.range(50).map(function(){return 0;})
-           bpath1.data([brownData1])
-           bpath2.data([brownData2])
+          redraw(Number(d3.select(this).attr('d')));
+            plotData1 = d3.range(50).map(function(){return 0;})
+            plotData2 = d3.range(50).map(function(){return 0;})
+            path1.data([plotData1])
+            path2.data([plotData2])         
+            brownData1 = d3.range(50).map(function(){return 0;})
+            brownData2 = d3.range(50).map(function(){return 0;})
+            bpath1.data([brownData1])
+            bpath2.data([brownData2])
           });
       
         var sliderLabel = slider.append("text")
@@ -851,7 +856,7 @@
 <div class = "columns">
     <div class = "left column">
       <h3> Why this matters</h3>
-    <p>Let's say people deposit their money in your bank, and you use it to place bets. If you think the oulotcomes of the bets are normal, but they're actually fat-tailed, the bets will still pay off most of the time. But sometimes you'll be very, very wrong. Then the government will have to bail you out, or else there will be a bank run like at the end of <a href="http://www.youtube.com/watch?v=qu2uJWSZkck">It's a Wonderful Life</a> .</p>
+    <p>Let's say people deposit their money in your bank, and you use it to place bets. If you think the outcomes of the bets are normal, but they're actually fat-tailed, the bets will still pay off most of the time. But sometimes you'll be very, very wrong. Then the government will have to bail you out to stop a bank run like the one at the end of <a href="http://www.youtube.com/watch?v=qu2uJWSZkck">It's a Wonderful Life</a> .</p>
 
     <p>It isn't just banks that should take notice, though. We also see fat tails in hurricane damage, crop losses, death from deadly conflicts, and other arenas that public policy addresses.</p>
 
@@ -861,8 +866,9 @@
       <h3>More information</h3>
       <ul>
        <li><a href="http://en.wikipedia.org/wiki/Fat-tailed_distribution">Wikipedia</a> </li>
-       <li><a href="http://www.fooledbyrandomness.com/FatTails.html">Nicholas Nassim Taleb's textbook (in progress)</a></li>
+       <li><a href="http://www.fooledbyrandomness.com/FatTails.html">Nicholas Nassim Taleb's in-progress textbook</a> (This visualization was inspired by Vol. 1, Section 9.3.)  </li>
       <li><a href="http://www.rff.org/News/Features/Pages/Understanding-Fat-Tailed-Distributions-and-What-They-Mean-for-Policy.aspx">Resources for the Future</a></li>
+      <li><a href="http://www.mit.edu/~junpan/ddjpc.pdf">Jun Pan</a> (This is how the distributions are made.)</li>
     </ul>
      <h3>Makers</h3>
      <p>Made in <a href="http://d3js.org/">d3.js</a> by <a href="http://heylewis.com">Lewis Lehe</a> and <a href="http://vctr.me/">Victor Powell.</a> Lewis Lehe is a PhD student in Transportation Engineering at UC Berkeley, and Victor Powell is a freelance  developer/teacher.js.</p>
