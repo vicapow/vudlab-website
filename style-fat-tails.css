@@ -1,0 +1,124 @@
+
+.bar rect {
+  fill: steelblue;
+  shape-rendering: crispEdges;
+}
+
+.bar text {
+  fill: #fff;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis .tick.major line {
+  stroke: #000;
+  stroke-dasharray: 2, 2;
+}
+
+.zero{
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.sdBox{
+  fill: steelblue;
+  opacity: 0.4;
+  stroke: none;
+}
+
+.sliderLabel {
+  font-size: 15px;
+}
+
+.bigLabel {
+  font-size: 25px;
+}
+
+.plotLabel{
+  font-size: 15px;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  opacity: 0.5;
+  width: 38px;
+  height: 21px;
+  padding: 9px;
+  font: 18px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+
+}
+
+div.tooltip p{
+  top: 20px;
+  position: relative;
+}
+
+#aslider{
+  height: 300px;
+  position: absolute;
+  left: 700px;
+  top: 100px;
+}
+
+html, body{
+  margin: 0;
+}
+
+body {
+  font: 11px sans-serif;
+}
+
+.title{
+  font-size: 8em;
+  font-weight: lighter;
+  margin-bottom: 0px;
+}
+
+.p-value-slider path, .p-value-slider line{
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.p-value-slider .handle{
+  fill: #555;
+  stroke: #000;
+  r: 10px;
+  cursor: pointer;
+}
+
+.frame{
+  width: 1000px;
+  margin: auto;
+}
+
+.columns{
+  margin-top: 25px;
+  font-size: 13px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+}
+
+.columns .column {
+  position: relative;
+  width: 46%;
+  padding: 1%;
+}
+
+.columns .left {
+   float: left;
+}
+
+.columns .right {
+  float: right;
+}
