@@ -10,6 +10,8 @@
     <div class = "columns">
     <h1 class="title">Normal vs. Fat-tailed Distributions</h1>
     <div class = "left column">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       <h3> Normal</h3>
     <p>A normal distribution varies a lot in the neighborhood of its average, but produces few examples beyond three standard deviations from that average.</p>
 
@@ -22,7 +24,7 @@
 
     <div class = "right column">
       <h3>Don't get confused</h3>
-    <p>Fat tails don't mean <em>more</em> variance; just <em>different</em> variance. For a given variance, a higher chance of extreme deviations implies a lower chance of medium ones. To paraphrase <a href="https://docs.google.com/file/d/0B_31K_MP92hURjZxTkxUTFZnMVk/edit?pli=1">Nicholas Nassim Taleb</a>:</p>
+    <p>Fat tails don't mean <em>more</em> variance; just <em>different</em> variance. For a given variance, a higher chance of extreme deviations implies a lower chance of medium ones. To paraphrase <a href="https://docs.google.com/file/d/0B_31K_MP92hURjZxTkxUTFZnMVk/edit?pli=1">Nassim N. Taleb</a>:</p>
 
     <p style="margin-left: 10px;"><i>The normal distribution spends 68% of the time within one standard deviation of its mean. If finance has fat tails, how much time do stocks spend within one standard deviation? </i></p>
 
@@ -609,6 +611,7 @@
           .data(plotData1, function(d){return d; });
         
         
+
         circle.enter()
           .append('circle')
           .attr({
@@ -624,7 +627,7 @@
         circle.transition().duration(dur).ease('linear')
           .attr("cx", function(d,i){return x2(i -1);})
           .attr("r", "3px");
-        
+       
         circle.exit().remove();
         
         path1
@@ -823,11 +826,15 @@
             redraw(Number(d3.select(this).attr('d')));
           })
           .on('dragend', function(){
-            redraw(Number(d3.select(this).attr('d')));
-           brownData1 = d3.range(50).map(function(){return 0;})
-           brownData2 = d3.range(50).map(function(){return 0;})
-           bpath1.data([brownData1])
-           bpath2.data([brownData2])
+          redraw(Number(d3.select(this).attr('d')));
+            plotData1 = d3.range(50).map(function(){return 0;})
+            plotData2 = d3.range(50).map(function(){return 0;})
+            path1.data([plotData1])
+            path2.data([plotData2])         
+            brownData1 = d3.range(50).map(function(){return 0;})
+            brownData2 = d3.range(50).map(function(){return 0;})
+            bpath1.data([brownData1])
+            bpath2.data([brownData2])
           });
       
         var sliderLabel = slider.append("text")
@@ -851,7 +858,7 @@
 <div class = "columns">
     <div class = "left column">
       <h3> Why this matters</h3>
-    <p>Let's say people deposit their money in your bank, and you use it to place bets. If you think the oulotcomes of the bets are normal, but they're actually fat-tailed, the bets will still pay off most of the time. But sometimes you'll be very, very wrong. Then the government will have to bail you out, or else there will be a bank run like at the end of <a href="http://www.youtube.com/watch?v=qu2uJWSZkck">It's a Wonderful Life</a> .</p>
+    <p>Let's say people deposit their money in your bank, and you use it to place bets. If you think the outcomes of the bets are normal, but they're actually fat-tailed, the bets will still pay off most of the time. But sometimes you'll be very, very wrong. Then the government will have to bail you out to stop a bank run like the one at the end of <a href="http://www.youtube.com/watch?v=qu2uJWSZkck">It's a Wonderful Life</a> .</p>
 
     <p>It isn't just banks that should take notice, though. We also see fat tails in hurricane damage, crop losses, death from deadly conflicts, and other arenas that public policy addresses.</p>
 
@@ -861,8 +868,9 @@
       <h3>More information</h3>
       <ul>
        <li><a href="http://en.wikipedia.org/wiki/Fat-tailed_distribution">Wikipedia</a> </li>
-       <li><a href="http://www.fooledbyrandomness.com/FatTails.html">Nicholas Nassim Taleb's textbook (in progress)</a></li>
+       <li><a href="http://www.fooledbyrandomness.com/FatTails.html">Nassim N. Taleb's in-progress textbook</a> (This visualization was inspired by Vol. 1, Section 9.3.)  </li>
       <li><a href="http://www.rff.org/News/Features/Pages/Understanding-Fat-Tailed-Distributions-and-What-They-Mean-for-Policy.aspx">Resources for the Future</a></li>
+      <li><a href="http://www.mit.edu/~junpan/ddjpc.pdf">Jun Pan</a> (This is how the distributions are made.)</li>
     </ul>
      <h3>Makers</h3>
      <p>Made in <a href="http://d3js.org/">d3.js</a> by <a href="http://heylewis.com">Lewis Lehe</a> and <a href="http://vctr.me/">Victor Powell.</a> Lewis Lehe is a PhD student in Transportation Engineering at UC Berkeley, and Victor Powell is a freelance  developer/teacher.js.</p>
@@ -870,6 +878,16 @@
 
     </div>
     </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-42176421-1', 'vudlab.com');
+  ga('send', 'pageview');
+
+</script>
 
 </body>
