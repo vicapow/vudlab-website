@@ -64,7 +64,7 @@
           .domain(xdomain)
           .range([0, hWidth])
 
-      // Generate a histogram using twenty uniformly-spaced bins.
+      // Generate the data for a histogram
       function ft(a, n){
         var b = Math.sqrt((1 - p * Math.pow(a, 2))/(1-p));
         var sample = [];
@@ -78,7 +78,7 @@
         return sample;
       }
       
-      function kurtosis(a, p){
+      function kurtosis(a, p){ //calc kurtosis
         var b = Math.sqrt((1 - p * Math.pow(a, 2))/(1-p));
         return 3*( p * Math.pow(a,4) + (1-p) * Math.pow(b,4));
       }
@@ -92,7 +92,7 @@
         }
         return -1;
       }
-      
+      //generate the data
       var normData = d3.range(n).map(d3.random.normal(0,1))
         , ftData = ft(a, n)
         , binize = d3.layout.histogram()
@@ -104,7 +104,7 @@
             .domain([0, d3.max(data, function(d) { return d.y; })])
             .range([hHeight, 0]);
       
-      function color(d){
+      function color(d){  //an absolute value color scale
         var c = d3.scale.linear()
         .domain([0 , xdomain[1]])
         .range(colors)
@@ -243,7 +243,7 @@
           .attr("transform", "translate(" + (hWidth) + ",0)")
           .call(hist2YAxis);
 
-      function redraw(a) {
+      function redraw(a) { //redraw after the slider is changed
         ftData = ft(a, n);
         data = binize(ftData);
         y.domain([0, d3.max(data, function(d) { return d.y; })]);
@@ -279,30 +279,30 @@
             .attr("height", function(d) { return hHeight - y(d.y); });
       };
       
-      var h2 = hHeight - 200
+      var h2 = hHeight - 200 //height of the plots
 
-      var market1 = d3.select("#frame").append("svg")
-          .classed('market market1', true)
+      var devs1 = d3.select("#frame").append("svg")
+          .classed('devs devs1', true)
           .attr("width", hWidth + m.left + m.right)
           .attr("height", h2 + 50)
         .append("g")
           .attr("transform", "translate(" + m.left + "," + 30 + ")");
       
-      d3.select('.market1').append('text')
+      d3.select('.devs1').append('text')
         .attr('text-anchor', 'middle')
         .attr("class", "plotLabel")
         .attr('transform','translate(' + (m.left + hWidth/2) + ',20)')
         .text('Fat-tailed Deviations');
           
       
-      var market2 = d3.select("#frame").append("svg")
-          .classed('market market2', true)
+      var devs2 = d3.select("#frame").append("svg")
+          .classed('devs devs2', true)
           .attr("width", hWidth + m.left + m.right)
           .attr("height", h2 + 50)
         .append("g")
           .attr("transform", "translate(" + 45 + "," + 30 + ")");
 
-      d3.select('.market2').append('text')
+      d3.select('.devs2').append('text')
         .attr('text-anchor', 'middle')
         .attr("class", "plotLabel")
         .attr('transform','translate(' + (m.left + hWidth/2 -30) + ',20)')
@@ -351,18 +351,18 @@
         .domain([0, 50])
         .range([0,hWidth])
 
-      var plotData1 = d3.range(50).map(function(){return newFTData();})
-      var plotData2 = d3.range(50).map(function(){return newNormalData();})
+      var devData1 = d3.range(50).map(function(){return newFTData();})
+      var devData2 = d3.range(50).map(function(){return newNormalData();})
 
       var brownData1 = d3.range(50).map(function(){return 0;})
       var brownData2 = d3.range(50).map(function(){return 0;})
 
       for( var i = 1; i < brownData1.length; i++){
-        brownData1[i] += plotData1[i] + brownData1[i-1]
+        brownData1[i] += devData1[i] + brownData1[i-1]
       };
 
       for( var i = 1; i < brownData2.length; i++){
-        brownData2[i] += plotData2[i] + brownData2[i-1]
+        brownData2[i] += devData2[i] + brownData2[i-1]
       };
 
       var yAxis2 = d3.svg.axis()
@@ -384,7 +384,7 @@
           .scale(x2)
           .orient("bottom");
 
-      market1.append("g")
+      devs1.append("g")
           .attr("class", "y axis")
           .attr("transform", "translate(0,0)")
           .call(yAxis2);
@@ -399,12 +399,12 @@
           .attr("transform", "translate(0,0)")
           .call(byAxis2);
       
-      market2.append("g")
+      devs2.append("g")
           .attr("class", "y axis")
           .attr("transform", "translate(0,0)")
           .call(yAxis2);
 
-      var zeroLine1 = market1.append("line")
+      var zeroLine1 = devs1.append("line")
           .attr({ 
             x1: 0, 
             x2: hWidth, 
@@ -432,7 +432,7 @@
             class: "zero"
           });
 
-      var zeroLine2 = market2.append("line")
+      var zeroLine2 = devs2.append("line")
           .attr({ 
             x1: 0, 
             x2: hWidth, 
@@ -442,7 +442,7 @@
             transform: "translate(0," + h2/2 + ")"
           });
 
-      var sdBox1 = market1.append("rect")
+      var sdBox1 = devs1.append("rect")
         .attr({
           width : hWidth,
           height : y2(-1) - y2(1),
@@ -451,8 +451,7 @@
           y: y2(1)
         })
 
-
-      var sdBox2 = market2.append("rect")
+      var sdBox2 = devs2.append("rect")
         .attr({
           width : hWidth,
           height : y2(-1) - y2(1),
@@ -493,7 +492,7 @@
         return t;
       };
 
-      market1.append("defs").append("clipPath")
+      devs1.append("defs").append("clipPath")
           .attr("id", "clip1")
         .append("rect")
           .attr("width", hWidth)
@@ -505,7 +504,7 @@
           .attr("width", hWidth)
           .attr("height", h2);
       
-      market2.append("defs").append("clipPath")
+      devs2.append("defs").append("clipPath")
           .attr("id", "clip2")
         .append("rect")
           .attr("width", hWidth)
@@ -517,13 +516,13 @@
           .attr("width", hWidth)
           .attr("height", h2);
 
-      var clip1 = market1.append('g')
+      var clip1 = devs1.append('g')
         .attr('clip-path','url(#clip1)');
       
       var bclip1 = brown1.append('g')
         .attr('clip-path','url(#bclip1)');
         
-      var clip2 = market2.append('g')
+      var clip2 = devs2.append('g')
         .attr('clip-path','url(#clip2)');
     
       var bclip2 = brown2.append('g')
@@ -531,7 +530,7 @@
 
       var path1 = clip1
           .append('path')
-            .data([plotData1])
+            .data([devData1])
           .attr({
             class: 'line',
             fill: 'none',
@@ -564,7 +563,7 @@
       
       var path2 = clip2
           .append('path')
-            .data([plotData2])
+            .data([devData2])
           .attr({
             class: 'line',
             fill: 'none',
@@ -585,8 +584,6 @@
         return Math.pow(e_x2 - ex_2, 0.5);
       }
 
-
-
       function plot1Anim(){
         var t = newFTData();
         
@@ -603,11 +600,10 @@
             .duration(200)
             .attr("opacity", "1")
         
-        plotData1.push(t);
+        devData1.push(t);
         
         var circle = clip1.selectAll("circle")
-          .data(plotData1, function(d){return d; });
-        
+          .data(devData1, function(d){return d; });
         
         circle.enter()
           .append('circle')
@@ -619,7 +615,7 @@
             stroke: "black"
           });
         
-        var v = stdDev(plotData1);
+        var v = stdDev(devData1);
         
         circle.transition().duration(dur).ease('linear')
           .attr("cx", function(d,i){return x2(i -1);})
@@ -682,15 +678,11 @@
             .attr("transform", "translate(" + x2(-1) + ",0)")
             .each('end', plot1Anim);
         
-        plotData1.shift();
+        devData1.shift();
         brownData1.shift();
       };
 
       plot1Anim();
-      
-      
-      
-      
       
       function plot2Anim(){
         
@@ -708,10 +700,10 @@
             .duration(200)
             .attr("opacity", "1");
         
-        plotData2.push(t);
+        devData2.push(t);
         
         var circle = clip2.selectAll("circle")
-          .data(plotData2, function(d){return d; });
+          .data(devData2, function(d){return d; });
         
         circle.enter()
           .append('circle')
@@ -787,12 +779,11 @@
              .attr("transform", "translate(" + x2(-1) + ",0)")
              .each('end', plot2Anim);
 
-         plotData2.shift();
+         devData2.shift();
          brownData2.shift();
 
       }
       plot2Anim()
-
     
       ;(function setupSlider(){
         var sliderY = d3.scale.linear().domain([0.1, 1]).range([30,300]);
@@ -840,6 +831,7 @@
 
         var dragger = slider.append('circle')
           .attr('class', 'handle')
+          .attr("fill", "coral")
           .attr('r', 7)
           .attr('d', (sliderY.domain()[0] + sliderY.domain()[1]) / 2)
           .attr('cy', function(){
