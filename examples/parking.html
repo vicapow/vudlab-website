@@ -3,6 +3,11 @@
 
 <link href="../src/nv.d3.css" rel="stylesheet" type="text/css">
 
+
+
+
+
+
 <style>
 
 body {
@@ -43,6 +48,9 @@ text {
 <script src="../src/models/historicalBar.js"></script>
 <script src="../src/models/linePlusBarChart.js"></script>
 <script>
+// todo:
+// fix GMT time
+// change title
 
 d3.csv('data.csv', function(csv){
 
@@ -96,13 +104,10 @@ nv.addGraph(function() {
         
     chart.bars.forceY([0]);
     chart.bars2.forceY([0]);
-    //chart.lines.forceY([0]);
     nv.log(data);
     d3.select('#chart1 svg')
         .datum(data)
       .transition().duration(500).call(chart);
-
-//    nv.utils.windowResize(chart.update);
 
     return chart;
 });

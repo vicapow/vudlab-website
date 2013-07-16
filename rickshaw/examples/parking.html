@@ -44,7 +44,7 @@
 <div id="content">
 
 	<form id="side_panel">
-		<h1>Random Data in the Future</h1>
+		<h1>SF Park Parking Data</h1>
 		<section><div id="legend"></div></section>
 		<section>
 			<div id="renderer_form" class="toggler">
@@ -109,15 +109,6 @@
 
 <script>
 
-// set up our data series with 150 random data points
-
-// var seriesData = [ [], [], [], [], [], [], [], [], [] ];
-// var random = new Rickshaw.Fixtures.RandomData(150);
-
-// for (var i = 0; i < 150; i++) {
-// 	random.addData(seriesData);
-// }
-
 
 d3.csv('data.csv', function(csv){
 
@@ -131,7 +122,7 @@ places.map(function(place,i){
   var entry1 = {name: place, data: [], color: palette.color() }
   csv.map(function(row){
   	var d = new Date(row.time);
-    var entry2 = {x: d.getTime() / 1000, y: Number(row[place])}
+    var entry2 = {x: d.getTime()/ 1000 - 7 * 3600 , y: Number(row[place])}
     entry1.data.push(entry2)
   })
   sfdata.push(entry1)
@@ -194,7 +185,8 @@ var ticksTreatment = 'glow';
 
 var xAxis = new Rickshaw.Graph.Axis.Time( {
 	graph: graph,
-	ticksTreatment: ticksTreatment
+	ticksTreatment: ticksTreatment,
+
 } );
 
 xAxis.render();
@@ -212,14 +204,6 @@ var controls = new RenderControls( {
 	element: document.querySelector('form'),
 	graph: graph
 } );
-
-// add some data every so often
-
-// setInterval( function() {
-// 	random.addData(seriesData);
-// 	graph.update();
-
-// }, 3000 );
 
 
 })
