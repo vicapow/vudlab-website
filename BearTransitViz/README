@@ -1,0 +1,17 @@
+BearTransitViz is a respository that contains visualizations for the Bear Transit bus system at UC Berkeley.
+
+To Do List:
+
+-Prevent vehicles from disappearing when they change from one trip to the next (stop 1).
+
+-Implement a canvas in the legend using the <foreingObject> tag instead a svg rectangle with a gradient.
+
+-Implement the change direction button, for future routes
+
+-Implement the help button.
+
+-Implement selection of multiple routes
+
+-Change name to pro, new name firebus2.js
+
+-Change name to firebus, new name firebusDisplay.js

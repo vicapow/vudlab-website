@@ -1,0 +1,250 @@
+[
+	{
+		"stop_id": "1",
+		"stop_name": "Downtown Berkeley BART Station",
+		"stop_desc": "Shattuck Ave and Addison St",
+		"stop_lat": "37.871094",
+		"stop_lon": "-122.267403",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "2",
+		"stop_name": "Oxford Street",
+		"stop_desc": "Oxford St and University Ave",
+		"stop_lat": "37.87110672247638",
+		"stop_lon": "-122.2658413807885",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "3",
+		"stop_name": "Tolman Hall",
+		"stop_desc": "Hearst Ave and Arch St",
+		"stop_lat": "37.874397",
+		"stop_lon": "-122.263885",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "4",
+		"stop_name": "North Gate",
+		"stop_desc": "Hearst Ave and Euclid Ave",
+		"stop_lat": "37.874908",
+		"stop_lon": "-122.260521",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "5",
+		"stop_name": "Cory Hall: Hearst Avenue",
+		"stop_desc": "",
+		"stop_lat": "37.875233",
+		"stop_lon": "-122.258095",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "6",
+		"stop_name": "Evans Hall: Hearst Mining Circle",
+		"stop_desc": "",
+		"stop_lat": "37.873302",
+		"stop_lon": "-122.257545",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "7",
+		"stop_name": "Gayley: Stadium rimway",
+		"stop_desc": "",
+		"stop_lat": "37.872585",
+		"stop_lon": "-122.254082",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "8",
+		"stop_name": "Haas School of Business",
+		"stop_desc": "Piedmont Ave side",
+		"stop_lat": "37.871143",
+		"stop_lon": "-122.252884",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "9",
+		"stop_name": "International House",
+		"stop_desc": "Piedmont Ave and Bancroft",
+		"stop_lat": "37.869637",
+		"stop_lon": "-122.252708",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "10",
+		"stop_name": "Piedmont Avenue: Channing Way",
+		"stop_desc": "",
+		"stop_lat": "37.86764909226",
+		"stop_lon": "-122.251881717",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "11",
+		"stop_name": "Underhill Facility",
+		"stop_desc": "Channing Way and College Ave",
+		"stop_lat": "37.867229",
+		"stop_lon": "-122.254913",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "12",
+		"stop_name": "Kroeber Hall",
+		"stop_desc": "Bancroft Way and College Ave",
+		"stop_lat": "37.869163131",
+		"stop_lon": "-122.25477711",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "13",
+		"stop_name": "Hearst Memorial Gym",
+		"stop_desc": "Bancroft Way and Bowditch Street",
+		"stop_lat": "37.869198",
+		"stop_lon": "-122.257042",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "14",
+		"stop_name": "Eshelman Hall",
+		"stop_desc": "Bancroft Way and Dana St",
+		"stop_lat": "37.868805666",
+		"stop_lon": "-122.25905626",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "15",
+		"stop_name": "RSF",
+		"stop_desc": "Bancroft Way and Ellsworth",
+		"stop_lat": "37.8681666377",
+		"stop_lon": "-122.26407128",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "16",
+		"stop_name": "Banway Building",
+		"stop_desc": "Bancroft Way and Shattuck Ave",
+		"stop_lat": "37.86769682",
+		"stop_lon": "-122.267497215",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "17",
+		"stop_name": "Kittredge",
+		"stop_desc": "Shattuck Ave and Kittredge St",
+		"stop_lat": "37.868336",
+		"stop_lon": "-122.267693",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "18",
+		"stop_name": "Strawberry Canyon Recreational Area Uphill",
+		"stop_desc": "",
+		"stop_lat": "37.872406",
+		"stop_lon": "-122.246452",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "19",
+		"stop_name": "UC Botanical Garden Uphill",
+		"stop_desc": "",
+		"stop_lat": "37.8755082721614",
+		"stop_lon": "-122.2390069366055",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "20",
+		"stop_name": "Lawrence Hall of Science Uphill",
+		"stop_desc": "",
+		"stop_lat": "37.88018023709623",
+		"stop_lon": "-122.2460052526957",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "21",
+		"stop_name": "Space Sciences Lab/MSRI",
+		"stop_desc": "",
+		"stop_lat": "37.880680",
+		"stop_lon": "-122.243713",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "22",
+		"stop_name": "El Cerrito BART Station",
+		"stop_desc": "",
+		"stop_lat": "37.902523",
+		"stop_lon": "-122.299240",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "23",
+		"stop_name": "Richmond Field Stop",
+		"stop_desc": "",
+		"stop_lat": "37.916374",
+		"stop_lon": "-122.329933",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "24",
+		"stop_name": "Regatta Facility",
+		"stop_desc": "",
+		"stop_lat": "37.915154",
+		"stop_lon": "-122.340485",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "25",
+		"stop_name": "Buchanan Street",
+		"stop_desc": "Buchanan St and Jackson St",
+		"stop_lat": "37.88831486156572",
+		"stop_lon": "-122.3009647439405",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "26",
+		"stop_name": "Hopkins Street direction RFS",
+		"stop_desc": "Hopkins St and MLK, Jr. Way",
+		"stop_lat": "37.88612397345148",
+		"stop_lon": "-122.2749400948197",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "27",
+		"stop_name": "Center Street",
+		"stop_desc": "",
+		"stop_lat": "37.870319",
+		"stop_lon": "-122.268456",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "28",
+		"stop_name": "UC Botanical Garden Downhill",
+		"stop_desc": "",
+		"stop_lat": "37.87528178645387",
+		"stop_lon": "-122.2388926714124",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "29",
+		"stop_name": "Lawrence Hall of Science Downhill",
+		"stop_desc": "",
+		"stop_lat": "37.88050376398144",
+		"stop_lon": "-122.2462588711012",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "30",
+		"stop_name": "Strawberry Canyon Recreational Area Downhill",
+		"stop_desc": "",
+		"stop_lat": "37.87233406445769",
+		"stop_lon": "-122.2477104084306",
+		"zone_id": ""
+	},
+	{
+		"stop_id": "31",
+		"stop_name": "Hopkins Street direction UC Berkeley",
+		"stop_desc": "Hopkins St and MLK, Jr. Way",
+		"stop_lat": "37.88578031186247",
+		"stop_lon": "-122.2747116223717",
+		"zone_id": ""
+	}
+]

@@ -1,0 +1,231 @@
+{
+"features": [
+{
+"geometry": {
+"coordinates": [
+-122.26600555390635,
+37.872397166197466
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "2"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.26392871252003,
+37.874534694438083
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "3"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.26053022769229,
+37.874982619498432
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "4"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25811184847973,
+37.875364081172272
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "5"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25733932355097,
+37.873374506790057
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "6"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25401024019766,
+37.872713308674008
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "7"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25277663272834,
+37.871157843401612
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "8"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25235161879179,
+37.869665360666716
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "9"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25195854782189,
+37.867622097646901
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "10"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25493512865944,
+37.867402519212298
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "11"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.254791343747,
+37.869275983498319
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "12"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25701643896541,
+37.868995338914786
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "13"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.25904786687973,
+37.868739121007224
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "14"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.26406369372796,
+37.868106489816768
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "15"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.26749012201054,
+37.867636709365797
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "16"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.26777182165605,
+37.86832899363057
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "17"
+},
+"type": "Feature"
+},
+{
+"geometry": {
+"coordinates": [
+-122.26770240785702,
+37.871114840454091
+],
+"type": "Point"
+},
+"properties": {
+"stop_id": "1"
+},
+"type": "Feature"
+}
+],
+"properties": {
+"agency_id": "Bear Transit",
+"route_id": "P",
+"route_name": "Perimeter"
+},
+"type": "FeatureCollection"
+}
