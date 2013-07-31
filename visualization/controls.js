@@ -100,7 +100,7 @@ legend.svg =  d3.select(".legend svg")
 legend.width = +legend.window.style("width").slice(0,-2)
 legend.height = +legend.window.style("height").slice(0,-2)
 
-legend.background = legend.svg.append("rect").attr("width","100%").attr("height","100%").style("fill","whitesmoke").style("stroke","silver")
+legend.background = legend.svg.append("rect").attr("width","100%").attr("height","100%").style("fill","whitesmoke").style("stroke","silver").attr({rx:'10px',ry:'10px'})
 
 legend.rect = legend.svg.append("rect").attr("transform","translate("+(legend.width*0.3)+","+(legend.height*0.05)+")").attr("width","20%").attr("height","90%")
 
