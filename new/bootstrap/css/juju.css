@@ -1,0 +1,38 @@
+#launch{
+  font-size: 5em;
+}
+
+.sf-map {
+	background: url("../img/sf-map-cropped.jpg") center center;
+	height: 200px;
+}
+.carousel-caption{
+	background: rgba(0,0,0,0.35);
+	padding: 20px;
+	border-radius: 13px;
+	text-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+}
+.img-circle{
+	border: dashed coral 10px;
+}
+
+h1, h2, p, a, body {
+		font-family: Roboto;
+}
+
+.show{
+	background: 	rgba(255,210,150,0.15);
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 6px;
+}
+
+ul{
+	list-style-type: square;
+}
+
+.show ul>li{
+	font-size: 16px;
+	margin-top: 4px;
+}
+

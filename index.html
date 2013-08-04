@@ -1,38 +1,179 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>VUD Lab</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
-    <meta name="viewport" content="width=device-width"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Welcome to Vudlab</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap core CSS -->
+    <link href="new/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- personalized stylesheet -->
+    <link href="new/bootstrap/css/juju.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="new/carousel/carousel.css" rel="stylesheet">
+
   </head>
+<!-- NAVBAR
+================================================== -->
   <body>
-    <div class="container">
-      <div class="row-fluid">
-        <div class="span12">
-          <h1>VUDlab @ UC Berkeley</h1>
-          <br>
-          <img src="image.jpeg">
-          <br>
-          <br>
-          <p> The past decade has witnessed explosive growth in urban populations and digital records. The Visualizing Urban Data Idealab (VUDlab) builds on both trends by teaching and inventing techniques to clearly evoke urban data. The IdeaLab hosts speakers, teaches software and computer languages, and encourages collaboration. </p>
-          <p>The VUDlab is brand new (as of May 2013), so we're still getting up and running. Fall 2013 is when things will really kick off.</p>
-          <h2>News</h2>
-          <p>We had a launch party with free pizza. This is what we've got planned for the summer:</p>
-          <ul>
-              <li>Arranging existing tutorials into a structured course (or courses).</li>
-              <li>'Workouts' to practice d3.js and ggplot.</li>
-              <li>Pre-cleaned .json and .csv data set emporium for beginners.</li>
-              <li>First speaker.</li>
-              <li>A collection of pdf's and links to explain key urban/transportation trends and theories.</li>
-            </ul>
-          <a href="https://github.com/mbostock/d3/wiki/Tutorials">a big list of d3.js tutorials</a>
-          <br>
-          <a href="mailto:main@vudlab.com">main@vudlab.com</a>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+    	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+    	      <span class="icon-bar"></span>
+    	      <span class="icon-bar"></span>
+    	      <span class="icon-bar"></span>
+    	    </button>
+            <a class="navbar-brand" href="#">VUDlab</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <!-- <li><a href="#about">About</a></li> -->
+                <!-- <li><a href="#blog">Blog</a></li> -->
+                <li><a href="mailto:main@vudlab.com?Subject=I%20love%20you%20guys!">Contact</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+      </div>
     </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <!-- <li data-target="#myCarousel" data-slide-to="1"></li> -->
+        <!-- <li data-target="#myCarousel" data-slide-to="2"></li> -->
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="new/bootstrap/img/sf-map-cropped.jpg" alt="Wikimedia Commons">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 id="launch">Visualizing Urban <br> Data  ideaLab</h1>
+              <p>Let's do launch...</p>
+            </div>
+          </div>
+        </div>
+<!--         <div class="item">
+          <img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:Second slide" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Your ideas here.</h1>
+              <p>You're lucky. You're here for the</p>
+              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:Second slide" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Your ideas here.</h1>
+              <p>You're lucky. You're here for the</p>
+              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+<!--       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> -->
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="new/bootstrap/img/urban.png" style="height: 200px" >
+          <h2>Visualizing</h2>
+          <p>JavaScript and R render any dataset brilliantly. You'll be making <a href="http://bl.ocks.org/mbostock/1062383">force-directed</a> graphs in no time.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="new/bootstrap/img/beijing.png" style="height: 200px; width: 200px">
+          <h2>Urban</h2>
+          <p>Our mission is to improve decision-making about transit, sewers, crime, food carts...everything urban.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="new/bootstrap/img/data.png" style="height: 200px; width: 200px">
+          <h2>Data</h2>
+          <p>Our data suggest data visualization is 70% data parsing, 10% inspiration, and 20% Googling.</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+      <!-- START THE FEATURETTES -->
+      </div>
+
+
+      <div class="featurette-divider"></div>
+      <div class="container">
+
+      <div class = "col-lg-9 col-offset-1">
+
+            <div class="featurette">
+                <img class="featurette-image img-circle pull-right" data-src="holder.js/400x400">
+                <h2 class="featurette-heading" style="position: relative;margin-top: -50px">Projects</h2>
+                <p class="lead">What our members have been up to...</p>
+                  <div class="show col-lg-5">
+                    <ul>
+                      <li><a href="http://ray-mon.com/urbandatachallenge/"><strong>Transit and Equity</strong> </a> <br>Raymon Sutedjo-The and Sandra Lee</li>
+                      <li><a href="http://vudlab.com/fat-tails.html"><strong>Fat-tailed vs. Normal Distributions</strong></a><br>Lewis Lehe and Victor Powell</li>
+                      <li><strong><a href="http://vudlab.com/beartransit.html">Bear Transit Arrival Predictions</a></strong><br>Juan Argote and Jean Doig</li>
+                      <li><strong><a href="http://vudlab.com/TRB2014/carsharing.html">Flexible Carsharing</a></strong><br>Jean Doig and Jorge Barrios</li>
+                      <li><strong><a href="http://blog.vctr.me/posts/central-limit-theorem.html">Central Limit Theorem Visualized</a></strong><br>Victor Powell</li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="featurette-divider"></div>
+
+            <div class="featurette">
+              <img class="featurette-image img-circle pull-left" data-src="holder.js/400x400">
+              <h2 class="featurette-heading">Learning</h2>
+              <p class="lead"><a href="">Click here</a> for a structured list of tutorials, examples and courses to bring you up to speed.</p>
+            </div>
+      <div class="featurette-divider"></div>
+
+            <div class="featurette">
+              <img class="featurette-image img-circle pull-right" height="400px" width = "400px" src="new/bootstrap/img/image.jpeg">
+              <h2 class="featurette-heading">News</h2>
+              <p class="lead"></p>
+            </div>
+      </div>
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <div style="clear:both;"></div>
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="new/assets/js/jquery.js"></script>
+    <script src="new/bootstrap/js/bootstrap.min.js"></script>
+    <script src="new/assets/js/holder.js"></script>
   </body>
 </html>
-
