@@ -8,9 +8,12 @@
 }
 .carousel-caption{
 	background: rgba(0,0,0,0.35);
-	padding: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	border-radius: 13px;
 	text-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+	right: 25%;
+	left:25%;
 }
 .img-circle{
 	border: dashed coral 10px;

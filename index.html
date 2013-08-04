@@ -15,11 +15,10 @@
     <link href="new/bootstrap/css/juju.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="new/carousel/carousel.css" rel="stylesheet">
-
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <body>
+  <body ng-app="mainApp">
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -34,8 +33,8 @@
             <div class="nav-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <!-- <li><a href="#about">About</a></li> -->
-                <!-- <li><a href="#blog">Blog</a></li> -->
+                <li><a href="#/about">About</a></li>
+                <li><a href="#learn">Learn</a></li>
                 <li><a href="mailto:main@vudlab.com?Subject=I%20love%20you%20guys!">Contact</a></li>
               </ul>
             </div>
@@ -96,64 +95,7 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="new/bootstrap/img/urban.png" style="height: 200px" >
-          <h2>Visualizing</h2>
-          <p>JavaScript and R render any dataset brilliantly. You'll be making <a href="http://bl.ocks.org/mbostock/1062383">force-directed</a> graphs in no time.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="new/bootstrap/img/beijing.png" style="height: 200px; width: 200px">
-          <h2>Urban</h2>
-          <p>Our mission is to improve decision-making about transit, sewers, crime, food carts...everything urban.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="new/bootstrap/img/data.png" style="height: 200px; width: 200px">
-          <h2>Data</h2>
-          <p>Our data suggest data visualization is 70% data parsing, 10% inspiration, and 20% Googling.</p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-      <!-- START THE FEATURETTES -->
-      </div>
-
-
-      <div class="featurette-divider"></div>
-      <div class="container">
-
-      <div class = "col-lg-9 col-offset-1">
-
-            <div class="featurette">
-                <img class="featurette-image img-circle pull-right" data-src="holder.js/400x400">
-                <h2 class="featurette-heading" style="position: relative;margin-top: -50px">Projects</h2>
-                <p class="lead">What our members have been up to...</p>
-                  <div class="show col-lg-5">
-                    <ul>
-                      <li><a href="http://ray-mon.com/urbandatachallenge/"><strong>Transit and Equity</strong> </a> <br>Raymon Sutedjo-The and Sandra Lee</li>
-                      <li><a href="http://vudlab.com/fat-tails.html"><strong>Fat-tailed vs. Normal Distributions</strong></a><br>Lewis Lehe and Victor Powell</li>
-                      <li><strong><a href="http://vudlab.com/beartransit.html">Bear Transit Arrival Predictions</a></strong><br>Juan Argote and Jean Doig</li>
-                      <li><strong><a href="http://vudlab.com/TRB2014/carsharing.html">Flexible Carsharing</a></strong><br>Jean Doig and Jorge Barrios</li>
-                      <li><strong><a href="http://blog.vctr.me/posts/central-limit-theorem.html">Central Limit Theorem Visualized</a></strong><br>Victor Powell</li>
-                    </ul>
-                  </div>
-            </div>
-            <div class="featurette-divider"></div>
-
-            <div class="featurette">
-              <img class="featurette-image img-circle pull-left" data-src="holder.js/400x400">
-              <h2 class="featurette-heading">Learning</h2>
-              <p class="lead"><a href="">Click here</a> for a structured list of tutorials, examples and courses to bring you up to speed.</p>
-            </div>
-      <div class="featurette-divider"></div>
-
-            <div class="featurette">
-              <img class="featurette-image img-circle pull-right" height="400px" width = "400px" src="new/bootstrap/img/image.jpeg">
-              <h2 class="featurette-heading">News</h2>
-              <p class="lead"></p>
-            </div>
-      </div>
+      <ng-view></ng-view>
 
       <!-- /END THE FEATURETTES -->
 
@@ -162,7 +104,7 @@
       <div style="clear:both;"></div>
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2013 Visualizing Urban Data IdeaLab &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 
     </div><!-- /.container -->
@@ -174,6 +116,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="new/assets/js/jquery.js"></script>
     <script src="new/bootstrap/js/bootstrap.min.js"></script>
-    <script src="new/assets/js/holder.js"></script>
+    <script src="new/bootstrap/js/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>
