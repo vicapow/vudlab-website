@@ -18,8 +18,8 @@
 	/*box-shadow:  0 0 15px rgba(0,0,0,.7);*/
 }
 
-h1, h2, p, a, body {
-		font-family: Roboto;
+h1, h2, h3, h4, p, a, body {
+		font-family: Lato;
 }
 
 .show{
@@ -38,3 +38,15 @@ ul{
 	margin-top: 4px;
 }
 
+td>img{
+	width: 200px;
+}
+
+.navbar-nav>li,
+.navbar-nav>a{
+	padding-top: 5px;
+}
+
+.navbar-brand{
+	padding-top: 20px;
+}
