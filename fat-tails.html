@@ -534,7 +534,7 @@
           .append('path')
             .data([devData1])
           .attr({
-            class: 'line',
+            class: 'dev line',
             fill: 'none',
             stroke: 'black'
           })
@@ -567,7 +567,7 @@
           .append('path')
             .data([devData2])
           .attr({
-            class: 'line',
+            class: 'dev line',
             fill: 'none',
             stroke: 'black'
           })
@@ -817,11 +817,11 @@
             redraw(Number(d3.select(this).attr('d')));
           })
           .on('dragend', function(){
-          redraw(Number(d3.select(this).attr('d')));
-            plotData1 = d3.range(50).map(function(){return 0;})
-            plotData2 = d3.range(50).map(function(){return 0;})
-            path1.data([plotData1])
-            path2.data([plotData2])         
+            redraw(Number(d3.select(this).attr('d')));
+            // plotData1 = d3.range(50).map(function(){return 0;})
+            // plotData2 = d3.range(50).map(function(){return 0;})
+            // path1.data([plotData1])
+            // path2.data([plotData2])         
             brownData1 = d3.range(50).map(function(){return 0;})
             brownData2 = d3.range(50).map(function(){return 0;})
             bpath1.data([brownData1])
