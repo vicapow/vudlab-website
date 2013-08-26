@@ -1,0 +1,22 @@
+victor:
+
+lewis:
+  make the tooltip flatui style
+  add pie charts in tooltips
+  move the mouseover behavior for the donut charts into the tooltip?
+  format blockquotes better
+
+SHORT TERM:
+fix line spacing
+EXPERIMENT: radius changes with # applicants
+simpson's paradox alert
+
+share buttons (need to setup domain first)
+google analytics (need to setup domain first)
+add x to the top graph x-axis label
+
+
+TEXT:
+attribute the original authors of that graph
+sentence about vudlab
+start off with the berkeley thing
