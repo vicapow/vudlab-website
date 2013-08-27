@@ -1,6 +1,6 @@
-var width = 400
-  , height = 300
-  , radius = height / 4 
+var width = 450
+  , height = 155
+  , radius = 70 
 
   , blue = '#3498DB'
   , black = '#2C3E50'
@@ -36,7 +36,7 @@ var width = 400
     .attr("width", width)
     .attr("height", height)
     .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + radius + ")")
+      .attr("transform", "translate(" + radius + "," + radius + ")")
 
   , gMale = svg.selectAll("arc")
     .data(pie(maleData))
@@ -60,14 +60,14 @@ gMale.append('text')
   .attr({
     fill: black
     , "text-anchor": "middle"
-    , "transform": "translate(" + (-radius*1.3) + ",0)"
+    , "transform": "translate(" + 0 + "," + (height/2 - 5) + ")"
 })
 
 var gFemale = svg.selectAll("arc")
   .data(pie(femaleData))
   .enter().append("g")
     .attr("class", "arc")
-    .attr("transform","translate(" + 0 + "," + height / 2 + ")")
+    .attr("transform","translate(" + radius * 3  + "," + 0 + ")")
 
 gFemale.append("path")
   .attr("d", arc)
@@ -86,7 +86,7 @@ gFemale.append("text")
     .attr({
       fill: black
       , "text-anchor": "middle"
-      , "transform": "translate(" + (-radius*1.3) + ",0)"
+      , "transform": "translate(" + 0 + "," + (height/2 - 5) + ")"
   })
 
 d3.selectAll(".arc")
@@ -106,7 +106,7 @@ var legend = svg.selectAll(".legend")
   .enter().append("g")
     .attr("class", "legend")
     .attr("transform", function(d, i) {
-      return "translate(" + (width/2 + - 16) +  "," + (-height/4 + i * 20 ) + ")"
+      return "translate(" + (4*width/5 + - 16) +  "," + (i * 20 ) + ")"
     })
 
 legend.append("rect")
@@ -116,7 +116,7 @@ legend.append("rect")
   .style("fill", color)
 
 legend.append("text")
-  .attr("x", -6 )
+  .attr("x", -6)
   .attr("y", 9)
   .attr("dy", ".35em")
   .style("text-anchor", "end")

@@ -1,10 +1,13 @@
-var blue = '#3498DB',
- red = '#E74C3C',
- black = '#2C3E50'
-var margin = {top: 30, right: 10, bottom: 40, left: 40}
-
-var w = $('.container').width()
-  , h = 350
+"use strict"
+var blue = '#3498DB'
+  , red = '#E74C3C'
+  , black = '#2C3E50'
+  , margin = {top: 30, right: 10, bottom: 40, left: 50}
+  , color = d3.scale.ordinal()
+    .domain(['accepted', 'rejected'])
+    .range([blue, red])
+  , w = $('.force-directed-container').width()
+  , h = 400
   , tempo = 500
   , data = {
     'Women' : {
@@ -83,7 +86,7 @@ var w = $('.container').width()
       .attr("class", "y-axis-force")
   , main = svg.append("g")
     .attr("class", "main")
-    .attr("transform","translate(" + margin.left + "," + margin.top + ")")
+    .attr("transform","translate(" + (margin.left - 18) + "," + margin.top + ")")
   //axes and bands
   , x = d3.scale.ordinal()
       .domain(cols.concat('combined'))
@@ -179,7 +182,7 @@ var w = $('.container').width()
     return 'col-' + col.replace(/ /g, '').toLowerCase()
   }
   // make the radius of each node smaller as the number of nodes increases
-  , node_radius = 3 + 100 / num_nodes
+  , node_radius = 2 + 100 / num_nodes
 
 
 // create all the focal points for the different nodes
@@ -237,8 +240,6 @@ main.selectAll('circle' + '.node')
     .attr('cy', function(d) { return d.y })
     .attr('r', node_radius )
     .style('fill', function(d) { return colorScale(d.id) })
-    .style('stroke', 'white')
-    .style('stroke-width', 1)
 
 _.each(forces, function(force){ force.start() })
 
@@ -270,7 +271,7 @@ var cl = function(row, col, fociId){
       var r = Math.sqrt( (d.x - cx) * (d.x - cx) + (d.y - cy) * (d.y - cy))
       maxr = r > maxr ? r : maxr
     })
-    rot = 3/4 * Math.PI /* up and to the left */
+    var rot = 3/4 * Math.PI /* up and to the left */
     return {
       x : cx + Math.cos(rot) * maxr
       , y : cy - Math.sin(rot) * maxr
@@ -279,14 +280,11 @@ var cl = function(row, col, fociId){
   , ratioLabelFormat = function(d){ 
     return d3.format('.0%')(d[0] / d[1]) 
   }
-  
-  , timeline = [
-    tempo * 2
-    , function(){
+  , showLabels = function(){
       // show labels
       var labels = []
-      for(row in rows){
-        for(col in cols){
+      for(var row in rows){
+        for(var col in cols){
           labels.push({
             foci: cl(row, col)
             , text : ratioLabelFormat(data[rows[row]][cols[col]])
@@ -316,157 +314,176 @@ var cl = function(row, col, fociId){
             return col_maxs[d.col] === d.row ? 'bold' : 'normal'
           })
     }
-    , tempo * 5
-    , function(){
-      var dur = 250
-      var ratios = main.selectAll('text.year-ratio')
-        .transition()
-        .duration(dur)
-        .style('opacity','0.0')
-        .remove()
-      return dur
-    }
-    , function(){
-      var dur = tempo * 1
-      for(var row in rows){
-        // a hack to make the combined edges a bit smoother
-        animFoci( cl(row) + '.foci-0', { x : x('combined') - 100 }, dur)
-        animFoci( cl(row) + '.foci-1', { x : x('combined') }, dur)
-      }
-      return dur
-    }
-    // this is a bit of a hack to get the groups of nodes to combine
-    // properly. all we're doing is re-arranging the the links and foci
-    // so that there are only two groups of nodes and foci.
-    // for more about this, see: 
-    , function(){
-      var dur = 1, nodes, numerators, denominators, foci
-      for(var row in rows){
-          numerators = '.' + rowClass(rows[row]) + '.node.num'
-          nodes = selectNodes(numerators)
-          foci = selectNodes( cl(row, null, 0))[0]
-          linkToFoci(forces[row].links(), nodes, foci)
-          denominators = '.' + rowClass(rows[row]) + '.node.denom'
-          nodes = selectNodes(denominators)
-          foci = selectNodes( cl(row, null, 1))[0]
-          linkToFoci(forces[row].links(), nodes, foci)
-      }
-      return dur
-    }
-    , function(){
-      var dur = tempo * 2
-      for(var row in rows){
-        for(var col in cols){
-          animFoci( cl(row, col) + '.foci-0', { x : x('combined')  }, dur)
-          animFoci( cl(row, col) + '.foci-1', { x : x('combined')  }, dur)
-        }
-      }
-      return dur
-    }
-    , tempo * 1
-    // show the combined ratios
-    , function(){
-      var labels = rows.map(function(row, i){
-        return {
-          text : ratioLabelFormat(combined(i))
-          , row : i
-          , col : cols.length
-          , foci: cl(i, 0)
-        }
-      })
-      var ratios = main.selectAll('text.combined-ratio')
-      ratios.remove()
-      ratios.data(labels)
-        .enter().append('text')
-          .attr({
-            class : 'combined-ratio'
-            , x : function(d){  
-              return ratioLabelPos(d.row, 0).x
-            }
-            , y : function(d){ 
-              return ratioLabelPos(d.row, 0).y
-            }
-          })
-          .text(function(d){ return d.text })
-          .style('opacity','0.0')
+    , combineNodes = [
+      // series of animations to combine all the nodes
+      function(){
+        var dur = 250
+        var ratios = main.selectAll('text.year-ratio')
           .transition()
-          .style('opacity','1.0')
-          .style('font-weight', function(d){
-            return col_maxs[d.col] === d.row ? 'bold' : 'normal'
-          })
-    }
-    , tempo * 5
-    // hide the combined ration labels
-    , function(){
-      var dur = 250
-      var ratios = main.selectAll('text.combined-ratio')
-        .transition()
-        .duration(dur)
-        .style('opacity','0.0')
-        .remove()
-      return dur
-    }
-    , function(){
-      // undo hack from above
-      var dur = 1, nodes, numerator, denominator, foci
-      for(var row in rows){
-        for(var col in cols){
-          numerator = cl(row, col) + '.num'
-          nodes = selectNodes(numerator)
-          foci = selectNodes( cl(row, col, 0))[0]
-          linkToFoci(forces[row].links(), nodes, foci)
-
-          numerator = cl(row, col) + '.denom'
-          nodes = selectNodes(numerator)
-          foci = selectNodes( cl(row, col, 1))[0]
-          linkToFoci(forces[row].links(), nodes, foci)
-        }
+          .duration(dur)
+          .style('opacity','0.0')
+          .remove()
+        return dur
       }
-      return dur
-    }
-    // back to the original configuration
-    , function(){
-      var dur = tempo
-      _.each(rows, function(row_val, row){
-        _.each(cols, function(col_val, col){
-          animFoci( cl(row, col) + '.foci-0', { x : x('combined') - 200 }, dur)
-          animFoci( cl(row, col) + '.foci-1', { x : x('combined') }, dur)
+      , function(){
+        var dur = tempo * 1
+        for(var row in rows){
+          // a hack to make the combined edges a bit smoother
+          animFoci( cl(row) + '.foci-0', { x : x('combined') - 100 }, dur)
+          animFoci( cl(row) + '.foci-1', { x : x('combined') }, dur)
+        }
+        return dur
+      }
+      // this is a bit of a hack to get the groups of nodes to combine
+      // properly. all we're doing is re-arranging the the links and foci
+      // so that there are only two groups of nodes and foci.
+      // for more about this, see: http://stackoverflow.com/questions/18179916/mysterious-forces-in-d3-force-directed-layout
+      , function(){
+        var dur = 1, nodes, numerators, denominators, foci
+        for(var row in rows){
+            numerators = '.' + rowClass(rows[row]) + '.node.num'
+            nodes = selectNodes(numerators)
+            foci = selectNodes( cl(row, null, 0))[0]
+            linkToFoci(forces[row].links(), nodes, foci)
+            denominators = '.' + rowClass(rows[row]) + '.node.denom'
+            nodes = selectNodes(denominators)
+            foci = selectNodes( cl(row, null, 1))[0]
+            linkToFoci(forces[row].links(), nodes, foci)
+        }
+        return dur
+      }
+      , function(){
+        var dur = tempo * 2
+        for(var row in rows){
+          for(var col in cols){
+            animFoci( cl(row, col) + '.foci-0', { x : x('combined')  }, dur)
+            animFoci( cl(row, col) + '.foci-1', { x : x('combined')  }, dur)
+          }
+        }
+        return dur
+      }
+      , tempo * 1
+      // show the combined ratios
+      , function(){
+        var labels = rows.map(function(row, i){
+          return {
+            text : ratioLabelFormat(combined(i))
+            , row : i
+            , col : cols.length
+            , foci: cl(i, 0)
+          }
         })
-      })
-      return dur
-    }
-    , function(){
-      var dur = tempo
-      _.each(rows, function(row_val, row){
-        _.each(cols, function(col_val, col){
-          animFoci( cl(row, col) + '.foci-0', { x : x(col_val) }, dur)
-          animFoci( cl(row, col) + '.foci-1', { x : x(col_val) }, dur)
+        var ratios = main.selectAll('text.combined-ratio')
+        ratios.remove()
+        ratios.data(labels)
+          .enter().append('text')
+            .attr({
+              class : 'combined-ratio'
+              , x : function(d){  
+                return ratioLabelPos(d.row, 0).x
+              }
+              , y : function(d){ 
+                return ratioLabelPos(d.row, 0).y
+              }
+            })
+            .text(function(d){ return d.text })
+            .style('opacity','0.0')
+            .transition()
+            .style('opacity','1.0')
+            .style('font-weight', function(d){
+              return col_maxs[d.col] === d.row ? 'bold' : 'normal'
+            })
+      }
+    ]
+    // a series of animations to separate the nodes into departments
+    , separateNodes = [
+      // hide the combined ration labels
+      function(){
+        var dur = 250
+        var ratios = main.selectAll('text.combined-ratio')
+          .transition()
+          .duration(dur)
+          .style('opacity','0.0')
+          .remove()
+        return dur
+      }
+      , function(){
+        // undo hack from above
+        var dur = 1, nodes, numerator, denominator, foci
+        for(var row in rows){
+          for(var col in cols){
+            numerator = cl(row, col) + '.num'
+            nodes = selectNodes(numerator)
+            foci = selectNodes( cl(row, col, 0))[0]
+            linkToFoci(forces[row].links(), nodes, foci)
+
+            numerator = cl(row, col) + '.denom'
+            nodes = selectNodes(numerator)
+            foci = selectNodes( cl(row, col, 1))[0]
+            linkToFoci(forces[row].links(), nodes, foci)
+          }
+        }
+        return dur
+      }
+      // back to the original configuration
+      , function(){
+        var dur = tempo
+        _.each(rows, function(row_val, row){
+          _.each(cols, function(col_val, col){
+            animFoci( cl(row, col) + '.foci-0', { x : x('combined') - 200 }, dur)
+            animFoci( cl(row, col) + '.foci-1', { x : x('combined') }, dur)
+          })
         })
-      })
-      return dur
-    }
-  ]
+        return dur
+      }
+      , function(){
+        var dur = tempo
+        _.each(rows, function(row_val, row){
+          _.each(cols, function(col_val, col){
+            animFoci( cl(row, col) + '.foci-0', { x : x(col_val) }, dur)
+            animFoci( cl(row, col) + '.foci-1', { x : x(col_val) }, dur)
+          })
+        })
+        return dur
+      }
+      , tempo * 2
+      , showLabels
+    ]
   // loop through the timeline
   , t = -1
-  , forward = 1
   , back_and_forth = false // change to play the animation `back-and-forth`
-  , is_playing = true
+  , should_combine = false
+  , is_combined = false
+  , is_animating = false
+  , timeline = null
   , loop = function(){
-    if(is_playing){
-      if(back_and_forth){
-        if(t >= timeline.length - 1) forward = -1
-        else if (t <= 0) forward = 1
+      if(should_combine !== is_combined && !is_animating){
+        is_animating = true
+        timeline = should_combine ? combineNodes : separateNodes
+        t = 0
       }
-      var now = timeline[t = (t + forward) % timeline.length]
-      if(typeof now === 'function'){
-        var dur = now()
-        if(dur === undefined) dur = tempo
-        setTimeout(loop, dur)
-      }else setTimeout(loop, now)
-    }else setTimeout(loop, 100)
-  }
+      if(is_animating){
+        if(t - 1 < timeline.length){
+          var now = timeline[t++]
+          if(typeof now === 'function'){
+            var dur = now()
+            if(dur === undefined) dur = tempo
+            setTimeout(loop, dur)
+          }else setTimeout(loop, now)
+        }else {
+          is_animating = false
+          is_combined = should_combine
+          combineButton.innerText = should_combine ? 'separate' : 'combine'
+          setTimeout(loop, 100)
+        }
+      // check is we should be animating every 100ms (note: this is hacky)
+      }else setTimeout(loop, 100)
+    }
 
-loop()
+setTimeout(function(){
+  showLabels()
+  loop()
+}, 2000)
 
 function animFoci(foci, pos, duration){
   if(duration === undefined) duration = 1000
@@ -492,10 +509,10 @@ function animFoci(foci, pos, duration){
 // Labels
 
 svg.append('text')
-  .text('    = 10 applicants ')
+  .text('10 applicants =')
   .attr({
-    x: w
-    , y: h - 20
+    x: w - 12
+    , y: h - 13
     , class: 'legend-item1'
   }).style('text-anchor','end')
 
@@ -505,16 +522,36 @@ svg.append('circle')
     'class': 'node'
     , r: node_radius
   })
-  .attr('cx', w - 100)
-  .attr('cy', h - 23)
-  .style('fill', "grey")
-  .style('stroke', 'white')
-  .style('stroke-width', 1)
+  .attr('cx', w - 2)
+  .attr('cy', h - 18)
+  .style('fill', 'grey')
 
-var playButton = document.getElementsByClassName('play-button')[0]
-playButton.onclick = function(e){
+var combineButton = document.getElementsByClassName('combine-button')[0]
+combineButton.onclick = function(e){
   e.preventDefault()
-  is_playing = !is_playing
-  playButton.innerText = is_playing ? 'stop' : 'play'
+  if(!is_animating){
+    should_combine = !should_combine
+    combineButton.innerText = should_combine ? 'separate' : 'combine'
+  }
 };
 
+var legend = svg.selectAll(".legend")
+  .data(color.domain())
+  .enter().append("g")
+    .attr("class", "legend")
+    .attr("transform", function(d, i) {
+      return "translate(" + (w - 10) +  "," + (h - 68 + i * 20 ) + ")"
+    })
+
+legend.append("rect")
+  .attr("x", 0)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", color)
+
+legend.append("text")
+  .attr("x", -6)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "end")
+  .text(function(d) { return d })

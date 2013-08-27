@@ -1,7 +1,7 @@
 app.directive('lineChart', function(){
 
   var margin = { top: 40, right: 20, bottom: 55, left: 45 }
-    , width = 380 - margin.left - margin.right
+    , width = 300 - margin.left - margin.right
     , height = 300 - margin.top - margin.bottom
     //flatui colors
     , blue = '#3498DB'
