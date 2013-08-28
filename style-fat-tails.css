@@ -90,7 +90,7 @@ body {
 }
 
 .p-value-slider .handle{
-  fill: #555;
+  fill: coral;
   stroke: #000;
   r: 10px;
   cursor: pointer;

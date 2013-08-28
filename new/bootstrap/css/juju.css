@@ -1,0 +1,52 @@
+#launch{
+  font-size: 5em;
+}
+
+.sf-map {
+	background: url("../img/sf-map-cropped.jpg") center center;
+	height: 200px;
+}
+.carousel-caption{
+	background: rgba(0,0,0,0.35);
+	text-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+	right: 30%;
+	left: 30%;
+}
+
+.img-circle{
+	border: solid #ccc 15px;
+	/*box-shadow:  0 0 15px rgba(0,0,0,.7);*/
+}
+
+h1, h2, h3, h4, p, a, body {
+		font-family: Lato;
+}
+
+.show{
+	background: 	rgba(255,210,150,0.15);
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 6px;
+}
+
+ul{
+	list-style-type: square;
+}
+
+.show ul>li{
+	font-size: 16px;
+	margin-top: 4px;
+}
+
+td>img{
+	width: 200px;
+}
+
+.navbar-nav>li,
+.navbar-nav>a{
+	padding-top: 5px;
+}
+
+.navbar-brand{
+	padding-top: 20px;
+}

@@ -1,0 +1,644 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"acc",
+				"accOrRej"
+			],
+			[
+				"trans",
+				"translate"
+			],
+			[
+				"ta",
+				"transform"
+			],
+			[
+				"red",
+				"redData"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"key",
+				"keyRelabel"
+			],
+			[
+				"parseD",
+				"parseDaily"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"dire",
+				"directive	AngularJS Long"
+			],
+			[
+				"dir",
+				"directive	AngularJS Long"
+			],
+			[
+				"con",
+				"config	AngularJS"
+			],
+			[
+				"directive",
+				"directive	AngularJS Short"
+			],
+			[
+				"direct",
+				"directive	AngularJS Short"
+			],
+			[
+				"direc",
+				"directive	AngularJS Short"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 96.0,
+		"selected_items":
+		[
+			[
+				"angular",
+				"AngularJS: Rebuild Search Index"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"bow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"emmet",
+				"Emmet: Match Pair (outward)"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"",
+				"AngularJS: Look Up Definition"
+			],
+			[
+				"an",
+				"AngularJS: Look Up Definition"
+			],
+			[
+				"angu",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/lewis/Documents/github/simpsons-paradox/index.html",
+		"/home/lewis/Documents/github/simpsons-paradox/simp-style.css",
+		"/home/lewis/Documents/github/simpsons-paradox/force-directed.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/slider.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/lineDirect.js",
+		"/home/lewis/Documents/github/simpsons-paradox/donut-chart.js",
+		"/home/lewis/Documents/github/simpsons-paradox/views/table.html",
+		"/home/lewis/Documents/github/vudlab-website/simpsons/views/bottom.html",
+		"/home/lewis/Documents/github/vudlab-website/simpsons/index.html",
+		"/home/lewis/Documents/github/simpsons-paradox/views/bottom.html",
+		"/home/lewis/Documents/github/simpsons-paradox/line-chart.js",
+		"/home/lewis/Documents/github/simpsons-paradox/Flat-UI-master/less/modules/footer.less",
+		"/home/lewis/Documents/github/simpsons-paradox/todo.txt",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/donutDirect.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/barDirect.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/controllers/controller.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/app.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/controllers/main.js",
+		"/home/lewis/Documents/github/simpsons-paradox/d3.js",
+		"/home/lewis/Documents/github/simpsons-paradox/tooltip.js",
+		"/home/lewis/Documents/github/simpsons-paradox/other material.html",
+		"/home/lewis/Documents/github/vudlab-website/views/learn.html",
+		"/home/lewis/Documents/github/vudlab-website/views/workouts.html",
+		"/home/lewis/Documents/github/simpsons-paradox/Flat-UI-master/index2.html",
+		"/home/lewis/Documents/github/Diagnostics/view1.js",
+		"/home/lewis/Documents/github/Diagnostics/common.js",
+		"/home/lewis/Documents/github/simpsons-paradox/bootstrap/css/bootstrap.css",
+		"/home/lewis/Documents/github/juju/jumbotron/jumbotron.css",
+		"/home/lewis/Documents/github/juju/jumbotron/index.html",
+		"/home/lewis/Documents/github/juju/starter-template/index.html",
+		"/home/lewis/Documents/github/juju/bootstrap/css/juju.css",
+		"/home/lewis/Documents/github/juju/bootstrap/css/bootstrap.css",
+		"/home/lewis/Documents/github/Diagnostics/data.json",
+		"/home/lewis/Documents/github/juju/carousel/index.html",
+		"/home/lewis/Documents/github/bootstrap/index.html",
+		"/home/lewis/Documents/github/vudlab-website/website/index.html",
+		"/home/lewis/Dropbox/story1.txt",
+		"/home/lewis/Documents/github/dash/app/index.html",
+		"/home/lewis/Documents/github/dash/app/scripts/controllers/main.js",
+		"/home/lewis/Documents/github/dash/app/scripts/services/services.js",
+		"/home/lewis/Documents/github/Diagnostics/common2.js",
+		"/home/lewis/Documents/github/Diagnostics/interface.html",
+		"/home/lewis/Documents/github/dash/app/views/main.html",
+		"/home/lewis/Documents/github/dash/app/scripts/app.js",
+		"/home/lewis/Documents/github/angularjs-book/chapter8/server-communication/services.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/AngularJS-js-completions.sublime-settings",
+		"/home/lewis/Documents/github/Diagnostics/new1.js",
+		"/home/lewis/Documents/github/Diagnostics/interface-1.html",
+		"/home/lewis/Documents/github/Diagnostics/new2.js",
+		"/home/lewis/Documents/github/ViaApp/app/index.html",
+		"/home/lewis/Documents/github/angularjs-book/chapter4/guthub/app/views/list.html",
+		"/home/lewis/Documents/github/angularjs-book/chapter4/guthub/app/scripts/directives/directives.js",
+		"/home/lewis/Documents/github/angularjs-book/chapter4/guthub/app/views/viewRecipe.html",
+		"/home/lewis/Documents/github/angularjs-book/chapter4/guthub/app/views/recipeForm.html",
+		"/home/lewis/Documents/Learn/index.html",
+		"/home/lewis/Documents/Learn/controllers/main.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/lewis/Documents/github/sfpark/locParser.js",
+		"/home/lewis/Documents/Learn/zippy.html",
+		"/home/lewis/Documents/Learn/controllers/zippy.html",
+		"/home/lewis/Documents/Learn/list.html",
+		"/home/lewis/Documents/Learn/detail.html",
+		"/home/lewis/.config/sublime-text-3/Packages/AngularJS/AngularJS-js-completions.sublime-settings",
+		"/home/lewis/.config/sublime-text-3/Packages/User/AngularJS-completions.sublime-settings",
+		"/home/lewis/.config/sublime-text-3/Packages/AngularJS/AngularJS-completions.sublime-settings",
+		"/home/lewis/.config/sublime-text-3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
+		"/home/lewis/.config/sublime-text-3/Packages/User/AngularJS-sublime-package.sublime-settings",
+		"/home/lewis/.cache/.fr-Sxj2Lw/Main.sublime-menu",
+		"/home/lewis/.cache/.fr-YM5yIL/JavaScript.sublime-settings",
+		"/home/lewis/Documents/Learn/app.js",
+		"/home/lewis/Documents/github/angular/index.html",
+		"/home/lewis/Documents/first/app/views/main.html",
+		"/home/lewis/Documents/asdf.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"start",
+			"left",
+			"label",
+			"+",
+			"axis",
+			"margin",
+			"x =",
+			"node_radius",
+			"r:",
+			"accepted",
+			"band",
+			"bands",
+			"x =",
+			"x :",
+			"foci",
+			"translate",
+			"axis",
+			"label",
+			"Women",
+			"label",
+			"seperate",
+			"bootstrap",
+			"container",
+			"h3",
+			"vanish",
+			"l",
+			"co",
+			"women",
+			"men",
+			"they",
+			"variable",
+			"dependent",
+			"independent",
+			"stroke",
+			"red",
+			"stroke",
+			"400",
+			"force",
+			"Suppose",
+			"stroke-width",
+			"axis",
+			"both",
+			"see",
+			"actually",
+			"px",
+			"is",
+			"\n                  ",
+			"bar",
+			"text",
+			"}}",
+			"200",
+			"group",
+			"rates",
+			"male",
+			"200",
+			"make",
+			"law",
+			"fdas",
+			"applied",
+			"asdf",
+			"Hard",
+			"Easy",
+			"Female",
+			"Males",
+			"Username",
+			"donutDirects",
+			"donutDirect",
+			"slider",
+			"ph",
+			"fh",
+			"mh",
+			"ph",
+			"$http",
+			"parsing",
+			"acceptance",
+			"femh",
+			"maleHard",
+			"pHard",
+			"male",
+			"female",
+			"hard",
+			"easy",
+			"hard",
+			"coursepH",
+			"course",
+			"phardpH",
+			"phard",
+			"coursepHar",
+			"course",
+			"male",
+			"line",
+			"26",
+			"addmitted",
+			"gMale",
+			"24",
+			"600",
+			"male",
+			"value",
+			"male",
+			"Data",
+			",\n",
+			"600",
+			"radius",
+			"height",
+			"change",
+			"donut",
+			"65",
+			"controller",
+			"iAttrs",
+			"iElm",
+			"bower_components",
+			"is",
+			"would",
+			"coverage",
+			"it",
+			"label",
+			"matters",
+			"name",
+			"yaxis",
+			"yscale",
+			"women",
+			"Women",
+			"rangeband",
+			"y.",
+			"y(",
+			"cy",
+			"y(",
+			"createfoci"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"separate",
+			"h4",
+			"explained",
+			"explanatory",
+			"| number:0 }}",
+			"pHard",
+			"fHard",
+			"mHard",
+			"pHard",
+			"admitted",
+			"fh",
+			"mh",
+			"ph",
+			"mal",
+			"fem",
+			"group",
+			"18",
+			"",
+			"data",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "simpsons.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"simp",
+				"simpsons-paradox/simp-style.css"
+			],
+			[
+				"index",
+				"simpsons-paradox/index.html"
+			],
+			[
+				".css",
+				"simpsons-paradox/simp-style.css"
+			],
+			[
+				"force",
+				"simpsons-paradox/force-directed.js"
+			],
+			[
+				"donut",
+				"simpsons-paradox/donut-chart.js"
+			],
+			[
+				"slider",
+				"simpsons-paradox/scripts/slider.js"
+			],
+			[
+				"lined",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"css",
+				"simpsons-paradox/simp-style.css"
+			],
+			[
+				"table",
+				"simpsons-paradox/views/table.html"
+			],
+			[
+				"ind",
+				"simpsons-paradox/index.html"
+			],
+			[
+				"tabl",
+				"simpsons-paradox/views/table.html"
+			],
+			[
+				"bott",
+				"simpsons-paradox/views/bottom.html"
+			],
+			[
+				"line",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"bottom",
+				"simpsons-paradox/views/bottom.html"
+			],
+			[
+				"foot",
+				"simpsons-paradox/Flat-UI-master/less/modules/footer.less"
+			],
+			[
+				"donu",
+				"simpsons-paradox/donut-chart.js"
+			],
+			[
+				"simp-s",
+				"simpsons-paradox/simp-style.css"
+			],
+			[
+				"linedi",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"force-",
+				"simpsons-paradox/force-directed.js"
+			],
+			[
+				"linec",
+				"simpsons-paradox/line-chart.js"
+			],
+			[
+				"dont",
+				"simpsons-paradox/donut-chart.js"
+			],
+			[
+				"piedire",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"bar",
+				"simpsons-paradox/scripts/barDirect.js"
+			],
+			[
+				"piedi",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"controll",
+				"simpsons-paradox/scripts/controllers/controller.js"
+			],
+			[
+				"todo",
+				"simpsons-paradox/todo.txt"
+			],
+			[
+				"direc",
+				"simpsons-paradox/scripts/barDirect.js"
+			],
+			[
+				"control",
+				"simpsons-paradox/scripts/controllers/controller.js"
+			],
+			[
+				"donutdi",
+				"simpsons-paradox/scripts/donutDirect.js"
+			],
+			[
+				"app",
+				"simpsons-paradox/scripts/app.js"
+			],
+			[
+				"line-chart",
+				"simpsons-paradox/line-chart.js"
+			],
+			[
+				"don",
+				"simpsons-paradox/scripts/donutDirect.js"
+			],
+			[
+				"app.js",
+				"simpsons-paradox/scripts/app.js"
+			],
+			[
+				"",
+				"simpsons-paradox/scripts/donutDirect.js"
+			],
+			[
+				"inde",
+				"simpsons-paradox/index.html"
+			],
+			[
+				"force-d",
+				"simpsons-paradox/force-directed.js"
+			],
+			[
+				"force-dir",
+				"simpsons-paradox/force-directed.js"
+			],
+			[
+				"chart",
+				"simpsons-paradox/donut-chart.js"
+			],
+			[
+				"li",
+				"simpsons-paradox/line-chart.js"
+			],
+			[
+				"line-ch",
+				"simpsons-paradox/line-chart.js"
+			],
+			[
+				"line-",
+				"simpsons-paradox/line-chart.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 79.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

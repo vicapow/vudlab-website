@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+    <script type="text/javascript" src="d3.v3.min.js"></script>
+    <script type="text/javascript" src="firebase.js"></script>
+    <script type="text/javascript" src="moment.js"></script>
+    <style>
+    html, body, #map-canvas {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .prediction path,
+    .prediction line {
+      fill: none;
+      stroke: orange;
+      shape-rendering: crispEdges;
+    }
+    </style>
+  <body>
+    <script type="text/javascript" src="spacetime.js"></script> 
+    <script type="text/javascript" src="firebus2mod.js"></script>
+    <script type="text/javascript">
+    var s
+    var displayTime
+    var currentTime
+
+
+
+
+d3.timer(function(e){
+
+
+  if (pro.data != undefined) {// && pro.events != undefined){// && pre.stops != undefined && pre.links != undefined){
+    var speed = 5
+    var Time2Display = d3.scale.linear()
+      .domain([0, (1373560200 - 1373555700)/speed])
+      .range([1373555700, 1373560200])
+
+
+    currentTime = new Date().getTime()/1000
+    displayTime = Time2Display((currentTime % 86400) % ((1373560200 - 1373555700) / speed))
+    pro.cess()
+    pro.ject()
+    fig.redraw() 
+    // pre.process()
+    // pre.predictions()
+    //return true
+  }
+  return s
+})
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+todo
+
+add video thumbnails later
+make links open in new window
+blur the top image, make it darker
+add multiple images to the top

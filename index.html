@@ -1,38 +1,135 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>VUD Lab</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
-    <meta name="viewport" content="width=device-width"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Visualizing Urban Data IdeaLab</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="new/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="new/bootstrap/css/bootstrap-glyphicons.css">
+    <!-- personalized stylesheet -->
+    <link href="new/bootstrap/css/juju.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="new/carousel/carousel.css" rel="stylesheet">
+
   </head>
-  <body>
-    <div class="container">
-      <div class="row-fluid">
-        <div class="span12">
-          <h1>VUDlab @ UC Berkeley</h1>
-          <br>
-          <img src="image.jpeg">
-          <br>
-          <br>
-          <p> The past decade has witnessed explosive growth in urban populations and digital records. The Visualizing Urban Data Idealab (VUDlab) builds on both trends by teaching and inventing techniques to clearly evoke urban data. The IdeaLab hosts speakers, teaches software and computer languages, and encourages collaboration. </p>
-          <p>The VUDlab is brand new (as of May 2013), so we're still getting up and running. Fall 2013 is when things will really kick off.</p>
-          <h2>News</h2>
-          <p>We had a launch party with free pizza. This is what we've got planned for the summer:</p>
-          <ul>
-              <li>Arranging existing tutorials into a structured course (or courses).</li>
-              <li>'Workouts' to practice d3.js and ggplot.</li>
-              <li>Pre-cleaned .json and .csv data set emporium for beginners.</li>
-              <li>First speaker.</li>
-              <li>A collection of pdf's and links to explain key urban/transportation trends and theories.</li>
-            </ul>
-          <a href="https://github.com/mbostock/d3/wiki/Tutorials">a big list of d3.js tutorials</a>
-          <br>
-          <a href="main@vudlab.com">main@vudlab.com</a>
+<!-- NAVBAR
+================================================== -->
+  <body ng-app="mainApp">
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+    	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+    	      <span class="icon-bar"></span>
+    	      <span class="icon-bar"></span>
+    	      <span class="icon-bar"></span>
+    	    </button>
+            <a class="navbar-brand" href="#">VUDlab</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#learn">Learn</a></li>
+                <li><a href="#workouts">d3 Workouts</a></li>
+                <li><a href="mailto:main@vudlab.com?Subject=I%20love%20you%20guys!">Contact</a></li>
+              </ul>
+              <p class="pull-right" style="color: #999; line-height: 20px; padding-top: 20px; padding-bottom:15px;">University of California-Berkeley</p>
+            </div>
+          </div>
         </div>
+
+      </div>
     </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <!-- <li data-target="#myCarousel" data-slide-to="1"></li> -->
+        <!-- <li data-target="#myCarousel" data-slide-to="2"></li> -->
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="new/bootstrap/img/sf-map-cropped.jpg" alt="Wikimedia Commons">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 id="launch">Visualizing Urban <br> Data  IdeaLab</h1>
+              <p>let's do launch</p>
+            </div>
+          </div>
+        </div>
+<!--         <div class="item">
+          <img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:Second slide" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Your ideas here.</h1>
+              <p>You're lucky. You're here for the</p>
+              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:Second slide" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Your ideas here.</h1>
+              <p>You're lucky. You're here for the</p>
+              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+<!--       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> -->
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <ng-view></ng-view>
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <div style="clear:both;"></div>
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Visualizing Urban Data IdeaLab &middot;</p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="new/assets/js/jquery.js"></script>
+    <script src="new/bootstrap/js/bootstrap.min.js"></script>
+    <script src="new/bootstrap/js/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-42947307-1', 'vudlab.com');
+      ga('send', 'pageview');
+
+    </script>
   </body>
 </html>
-

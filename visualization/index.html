@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+    <script type="text/javascript" src="d3.v3.min.js"></script>
+    <script type="text/javascript" src="firebase.js"></script>
+    <script type="text/javascript" src="moment.js"></script>
+    <style>
+    html, body, #map-canvas {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    </style>
+  <body>
+    
+    <div id="map-canvas"></div>
+    <div id="iwindow">
+      <div></div>
+      <svg width="200" height="200"></svg>
+    </div>
+
+    <div class="legend">
+      <svg width="100%" height="100%"></svg>
+    </div>
+    <div id="time"></div>
+    <script type="text/javascript"> // Before doing analysis
+    
+    //loading the route shape
+    d3.json("P.json",function(data){
+      //pre.links = data.features[0].geometry.coordinates.map(function(link){ return link[2]})
+      data.features.forEach(function(shapeData){ // for each shape
+        shape = shapeData
+      })
+    })
+
+    </script>
+
+    <script type="text/javascript" src="GoogleMap.js"></script>
+    <script type="text/javascript" src="firebus2mod.js"></script>
+    <script type="text/javascript" src="firebus.js"></script>
+    
+    <script type="text/javascript" src="controls.js"></script>
+    <script type="text/javascript">
+    
+
+
+
+    var s
+    
+    var displayTime
+    var currentTime
+
+
+
+    var predictions = function(pm){
+     //if (pm < pre.stops[0].pm) {pm = pm + pre.links.slice(-1)[0]} 
+
+     //var time = new Date().getTime()/1000
+
+      return pro.predict(pm) - displayTime 
+    }
+
+    d3.timer(function(){
+      if (pro.stops != undefined && !d3.select("#stopsOverlay").empty()){
+        pro.cess()
+        initializeStops()
+        return true
+      } 
+    })
+
+    setInterval(function(e){
+      //console.log(e)
+      if (pro.data != undefined && shape != undefined){
+        var speed = 5
+        var Time2Display = d3.scale.linear()
+          .domain([0, (1373560200 - 1373555700)/speed])
+          .range([1373555700, 1373560200])
+
+        currentTime = new Date().getTime()/1000
+        displayTime = Time2Display((currentTime % 86400) % ((1373560200 - 1373555700) / speed))
+
+        d3.select("#time").text(moment(displayTime*1000).zone("-07:00").format("MM/DD/YYYY hh:mm:ss"))
+        // Advance the animation based on the latest data from firebase and the time elapsed
+        pro.cess()
+        pro.ject()
+        // Draw the route
+        paintRoute(shape)
+        // Relocate the buses
+        locateBuses()
+        // Draw the new catchment areas
+        if (catchmentStopId != null){
+          setCatchmentAreas()
+        }
+      }
+      return s
+    },50)
+
+    </script>
+  </body>
+</html>
