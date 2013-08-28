@@ -143,22 +143,27 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/Documents/github/simpsons-paradox/scripts/controllers/controller.js",
-		"/home/lewis/Documents/github/simpsons-paradox/scripts/lineDirect.js",
-		"/home/lewis/Documents/github/simpsons-paradox/scripts/donutDirect.js",
-		"/home/lewis/Documents/github/simpsons-paradox/scripts/slider.js",
-		"/home/lewis/Documents/github/simpsons-paradox/scripts/barDirect.js",
-		"/home/lewis/Documents/github/simpsons-paradox/todo.txt",
 		"/home/lewis/Documents/github/simpsons-paradox/index.html",
+		"/home/lewis/Documents/github/simpsons-paradox/simp-style.css",
+		"/home/lewis/Documents/github/simpsons-paradox/force-directed.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/slider.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/lineDirect.js",
+		"/home/lewis/Documents/github/simpsons-paradox/donut-chart.js",
+		"/home/lewis/Documents/github/simpsons-paradox/views/table.html",
+		"/home/lewis/Documents/github/vudlab-website/simpsons/views/bottom.html",
+		"/home/lewis/Documents/github/vudlab-website/simpsons/index.html",
+		"/home/lewis/Documents/github/simpsons-paradox/views/bottom.html",
+		"/home/lewis/Documents/github/simpsons-paradox/line-chart.js",
+		"/home/lewis/Documents/github/simpsons-paradox/Flat-UI-master/less/modules/footer.less",
+		"/home/lewis/Documents/github/simpsons-paradox/todo.txt",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/donutDirect.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/barDirect.js",
+		"/home/lewis/Documents/github/simpsons-paradox/scripts/controllers/controller.js",
 		"/home/lewis/Documents/github/simpsons-paradox/scripts/app.js",
 		"/home/lewis/Documents/github/simpsons-paradox/scripts/controllers/main.js",
-		"/home/lewis/Documents/github/simpsons-paradox/line-chart.js",
-		"/home/lewis/Documents/github/simpsons-paradox/donut-chart.js",
 		"/home/lewis/Documents/github/simpsons-paradox/d3.js",
-		"/home/lewis/Documents/github/simpsons-paradox/force-directed.js",
 		"/home/lewis/Documents/github/simpsons-paradox/tooltip.js",
 		"/home/lewis/Documents/github/simpsons-paradox/other material.html",
-		"/home/lewis/Documents/github/simpsons-paradox/simp-style.css",
 		"/home/lewis/Documents/github/vudlab-website/views/learn.html",
 		"/home/lewis/Documents/github/vudlab-website/views/workouts.html",
 		"/home/lewis/Documents/github/simpsons-paradox/Flat-UI-master/index2.html",
@@ -229,6 +234,56 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"start",
+			"left",
+			"label",
+			"+",
+			"axis",
+			"margin",
+			"x =",
+			"node_radius",
+			"r:",
+			"accepted",
+			"band",
+			"bands",
+			"x =",
+			"x :",
+			"foci",
+			"translate",
+			"axis",
+			"label",
+			"Women",
+			"label",
+			"seperate",
+			"bootstrap",
+			"container",
+			"h3",
+			"vanish",
+			"l",
+			"co",
+			"women",
+			"men",
+			"they",
+			"variable",
+			"dependent",
+			"independent",
+			"stroke",
+			"red",
+			"stroke",
+			"400",
+			"force",
+			"Suppose",
+			"stroke-width",
+			"axis",
+			"both",
+			"see",
+			"actually",
+			"px",
+			"is",
+			"\n                  ",
+			"bar",
+			"text",
+			"}}",
 			"200",
 			"group",
 			"rates",
@@ -306,57 +361,7 @@
 			"y(",
 			"cy",
 			"y(",
-			"createfoci",
-			"y :",
-			"w ",
-			"cols.length",
-			"animfoci",
-			"x :",
-			"x:",
-			"x: ",
-			"w =",
-			"x =",
-			"x(",
-			"createfoci",
-			"animfoci",
-			"x :",
-			"x = ",
-			"x =",
-			"'circle'",
-			"translate",
-			"main",
-			"createfoci",
-			"foci",
-			"x:",
-			"cols =",
-			"y =",
-			"x =",
-			"y =",
-			"range",
-			"height",
-			"createnode",
-			"createnodes",
-			"sexdepartment",
-			"sex",
-			"rowclass",
-			"color",
-			".on",
-			"svg",
-			"name",
-			"fill",
-			"name",
-			".data",
-			".js",
-			"cols",
-			"black",
-			"0",
-			"yaxis",
-			"xaxis",
-			"width",
-			"xaxis",
-			"text",
-			"svg",
-			"svg.append"
+			"createfoci"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -364,6 +369,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"separate",
+			"h4",
+			"explained",
+			"explanatory",
+			"| number:0 }}",
 			"pHard",
 			"fHard",
 			"mHard",
@@ -437,28 +447,104 @@
 		"selected_items":
 		[
 			[
-				"donut",
-				"simpsons-paradox/scripts/donutDirect.js"
+				"simp",
+				"simpsons-paradox/simp-style.css"
 			],
 			[
-				"controll",
-				"simpsons-paradox/scripts/controllers/controller.js"
+				"index",
+				"simpsons-paradox/index.html"
+			],
+			[
+				".css",
+				"simpsons-paradox/simp-style.css"
+			],
+			[
+				"force",
+				"simpsons-paradox/force-directed.js"
+			],
+			[
+				"donut",
+				"simpsons-paradox/donut-chart.js"
 			],
 			[
 				"slider",
 				"simpsons-paradox/scripts/slider.js"
 			],
 			[
+				"lined",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"css",
+				"simpsons-paradox/simp-style.css"
+			],
+			[
+				"table",
+				"simpsons-paradox/views/table.html"
+			],
+			[
+				"ind",
+				"simpsons-paradox/index.html"
+			],
+			[
+				"tabl",
+				"simpsons-paradox/views/table.html"
+			],
+			[
+				"bott",
+				"simpsons-paradox/views/bottom.html"
+			],
+			[
 				"line",
 				"simpsons-paradox/scripts/lineDirect.js"
 			],
 			[
-				"donutdi",
-				"simpsons-paradox/scripts/donutDirect.js"
+				"bottom",
+				"simpsons-paradox/views/bottom.html"
 			],
 			[
-				"index",
-				"simpsons-paradox/index.html"
+				"foot",
+				"simpsons-paradox/Flat-UI-master/less/modules/footer.less"
+			],
+			[
+				"donu",
+				"simpsons-paradox/donut-chart.js"
+			],
+			[
+				"simp-s",
+				"simpsons-paradox/simp-style.css"
+			],
+			[
+				"linedi",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"force-",
+				"simpsons-paradox/force-directed.js"
+			],
+			[
+				"linec",
+				"simpsons-paradox/line-chart.js"
+			],
+			[
+				"dont",
+				"simpsons-paradox/donut-chart.js"
+			],
+			[
+				"piedire",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"bar",
+				"simpsons-paradox/scripts/barDirect.js"
+			],
+			[
+				"piedi",
+				"simpsons-paradox/scripts/lineDirect.js"
+			],
+			[
+				"controll",
+				"simpsons-paradox/scripts/controllers/controller.js"
 			],
 			[
 				"todo",
@@ -466,7 +552,15 @@
 			],
 			[
 				"direc",
-				"simpsons-paradox/scripts/lineDirect.js"
+				"simpsons-paradox/scripts/barDirect.js"
+			],
+			[
+				"control",
+				"simpsons-paradox/scripts/controllers/controller.js"
+			],
+			[
+				"donutdi",
+				"simpsons-paradox/scripts/donutDirect.js"
 			],
 			[
 				"app",
@@ -489,14 +583,6 @@
 				"simpsons-paradox/scripts/donutDirect.js"
 			],
 			[
-				"donu",
-				"simpsons-paradox/donut-chart.js"
-			],
-			[
-				"force-",
-				"simpsons-paradox/force-directed.js"
-			],
-			[
 				"inde",
 				"simpsons-paradox/index.html"
 			],
@@ -506,10 +592,6 @@
 			],
 			[
 				"force-dir",
-				"simpsons-paradox/force-directed.js"
-			],
-			[
-				"force",
 				"simpsons-paradox/force-directed.js"
 			],
 			[
@@ -523,10 +605,6 @@
 			[
 				"line-ch",
 				"simpsons-paradox/line-chart.js"
-			],
-			[
-				"simp",
-				"simpsons-paradox/simp-style.css"
 			],
 			[
 				"line-",
@@ -558,7 +636,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 161.0,
+	"side_bar_width": 79.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

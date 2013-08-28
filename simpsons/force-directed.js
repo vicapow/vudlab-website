@@ -84,26 +84,24 @@ var blue = '#3498DB'
       .attr("class", "x-axis-force")
   , gYAxis = svg.append("g")
       .attr("class", "y-axis-force")
-  , main = svg.append("g")
-    .attr("class", "main")
-    .attr("transform","translate(" + (margin.left - 18) + "," + margin.top + ")")
-  //axes and bands
+  // axes and bands
   , x = d3.scale.ordinal()
       .domain(cols.concat('combined'))
-      .rangeBands([0, w ], .5)
-
+      .rangeBands([20, w ], .5)
+  // TODO: possibly rename `yScale` to just `y` ?
   , yScale = d3.scale.ordinal()
       .domain(rows)
       .rangeBands([0, h ], .5)
-
   , xAxis = d3.svg.axis()
       .scale(x)
       .tickPadding(10)
       .orient("bottom")
-
   , yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("right")
+  , main = svg.append("g")
+  .attr("class", "main")
+  .attr("transform","translate(30," + margin.top + ")")
 
   _.map(data, function(row, name){
     row_totals[name] = _.reduce(row, function(memo, col){
@@ -117,14 +115,14 @@ var blue = '#3498DB'
   gXAxis.selectAll(".tick.major")
     .append("rect")
     .attr({
-        "class": "band"
-        , width: 2*x.rangeBand()
-        , height: h- margin.bottom
-        , fill: function(d, i){
-          return ( i % 2 === 1 ) ? "#bdc3c7": "none"
-        }
-        , transform: "translate(" + -x.rangeBand() + "," + margin.top + ")"
-        , opacity: 0.4
+      "class": "band"
+      , width: 2*x.rangeBand()
+      , height: h- margin.bottom
+      , fill: function(d, i){
+        return ( i % 2 === 1 ) ? "#bdc3c7": "none"
+      }
+      , transform: "translate(" + -x.rangeBand() + "," + margin.top + ")"
+      , opacity: 0.4
     })
 
   var createForce = function(){

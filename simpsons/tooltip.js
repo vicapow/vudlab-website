@@ -7,8 +7,8 @@ var accOrRej = function(d){
 d3.select('.force-directed').selectAll("circle")
     .on("mousemove", function(d){
       tooltip.transition().duration(100)
-        .style("opacity", .9);
-      tooltip.html( 
+        .style("opacity", .9)
+      tooltip.html(
         '<table style="margin-bottom: 5px;" border="0" align="center" cellpadding="5" cellspacing="3">'
           + '<tbody>'
             + '<tr>'
@@ -31,15 +31,15 @@ d3.select('.force-directed').selectAll("circle")
         .style("top", (d3.event.pageY - 130) + "px")
 
         d3.select(this).transition().duration(25)
-          .attr("stroke", "white")
-          .attr("stroke-width","4px")
+          .attr('r', '6')
     })
     .on("mouseout", function(d) {
       tooltip.transition().duration(200)
         .style("opacity", 0);
       d3.select(this).transition().duration(25)
-        .attr("stroke", "#2C3E50")
-        .attr("stroke-width","1px")
+        // TODO: hardcoding the normal radius like this is sort of hacky
+        // but it gets the job down for now.
+        .attr('r', '2.2257336343115126')
     })
 
 d3.select('.svg-line').selectAll('circle')

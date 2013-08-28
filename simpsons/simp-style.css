@@ -14,8 +14,8 @@
   display: block;
 }
 .foci{
-  /* uncomment out to show foci for debugging */
-  /*display: none;*/
+  /* comment out to show foci for debugging */
+  display: none;
   stroke: yellow;
   stroke-width: 10px;
 }
@@ -24,9 +24,6 @@
   text-anchor: end;
 }
 
-.line-chart{
-  font-color: '#2C3E50'
-}
 
 h1{
   text-align: center;
@@ -142,4 +139,8 @@ text.year-ratio, text.combined-ratio{
 .twitter-share-button{
   float:right;
   margin-top: 20px;
+}
+
+text {
+  fill: #2C3E50;
 }
