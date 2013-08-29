@@ -19,7 +19,7 @@ app.directive("slider", function(){
         scope.$apply(function(){
           scope.updateProportions(ui.value, attrs.gender)
         })
-      }).find('a').append('<div class="slider-label">' + menToMale[attrs.gender]+ '</div>')
+      }).find('a').append('<div class="slider-label ">' + menToMale[attrs.gender]+ '</div>')
     }
   }
 })

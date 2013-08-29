@@ -25,15 +25,15 @@
             <p>If the data are properly pooled...there is a small but statistically significant bias in favor of women.</p>
             <small>(p. 403)</small>
           </blockquote>
-          <p>It was a textbook case of <strong>Simpson's Paradox</strong>.</p>
+          <p>It was a textbook case of <strong>Simpson's paradox</strong>.</p>
         </div>
         <div class="col-lg-2">
           <div id = "donut-chart"></div>
         </div>
       </div>
-      <h4>Definition</h4>
       <div class="row">
         <div class="col-lg-6">
+          <h4>Definition</h4>
           <p>Every Simpson's paradox involves at least three variables:</p>
           <ol>
              <li>the explained</li>
@@ -47,6 +47,8 @@
           <div id = 'line-chart'></div>
         </div>
       </div>
+      
+        <br>
       <div class="row">
         <div class = "col-lg-4" >
             <h4>Proper Pooling</h4>
@@ -56,18 +58,24 @@
             <p>Women are shunted by their socialization and education toward fields of graduate study that are generally more crowded, less productive of completed degrees, and less well funded, and that frequently offer poorer professional employment prospects.</p>
               <small>(p. 403)</small>
             </blockquote>
-          <h4>Illustration</h4>
-          <p>Suppose there are two departments: one easy, one hard ('hard' as in 'hard to get into'). Drag the sliders, located to the right, to set what percentage of men and women apply to the easy department. Both departments prefer women, but if too many women apply to the hard one, then their acceptance rate drops below the men's.</p>
+            <p>The results gave data on six departments, but the names were changed to protect the innocent.</p>
         </div>
         <div class="force-directed-container vis col-lg-8">
-          <h4 style="text-align:center"> Departments </h4>
+          <h4> Departments </h4>
           <svg></svg>
           <a class="btn btn-primary combine-button" href="#">combine</a>
         </div>
       </div>
-      <!-- the table -->
-      <div simpsons-table ng-include="'views/table.html'"></div>
-      <!-- <p>The researchers at Berkeley discuss six departments, although they don't reveal which ones they were. Below, you can see how women were accepted at similar rates as men but applied to the more competitive departments.</p> -->
+      
+      <div class="row">
+        <div class="col-lg-6">
+            <h4>Illustration</h4>
+            <p>Suppose there are two departments: one easy, one hard ('hard' as in 'hard to get into'). The sliders below set what percentage each gender applies to the easy department. Both departments prefer women, but if too many women apply to the hard one, their acceptance rate drops below the men's.</p>
+        </div>
+      </div>
+        <!-- the table -->
+      <div ng-include="'views/table.html'"></div>
+        
       <!-- the bottom -->
       <div class="row" ng-include="'views/bottom.html'"></div>
     </div><!-- /.container -->  

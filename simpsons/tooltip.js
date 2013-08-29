@@ -4,12 +4,13 @@ var accOrRej = function(d){
   return (d.id===0) ? "Yes" : "No"
 }
 
+
 d3.select('.force-directed').selectAll("circle")
     .on("mousemove", function(d){
       tooltip.transition().duration(100)
         .style("opacity", .9)
       tooltip.html(
-        '<table style="margin-bottom: 5px;" border="0" align="center" cellpadding="5" cellspacing="3">'
+        '<table border="0" align="center" cellpadding="5" cellspacing="3">'
           + '<tbody>'
             + '<tr>'
               + '<td>Accepted?</td>'
@@ -22,13 +23,13 @@ d3.select('.force-directed').selectAll("circle")
               + '<td>'+ d.department
             + '</tr>'
             +'<tr>'
-              + '<td>Sex: </td>'
+              + '<td>Gender: </td>'
               + '<td>'+ d.sex + '</td>'
             + '</tr>'
           + '</tbody>'
         + '</table>')
         .style("left", (d3.event.pageX + 10)  + "px")
-        .style("top", (d3.event.pageY - 130) + "px")
+        .style("top", (d3.event.pageY - 110) + "px")
 
         d3.select(this).transition().duration(25)
           .attr('r', '6')
@@ -36,7 +37,7 @@ d3.select('.force-directed').selectAll("circle")
     .on("mouseout", function(d) {
       tooltip.transition().duration(200)
         .style("opacity", 0);
-      d3.select(this).transition().duration(25)
+      d3.select(this).transition().duration(50)
         // TODO: hardcoding the normal radius like this is sort of hacky
         // but it gets the job down for now.
         .attr('r', '2.2257336343115126')

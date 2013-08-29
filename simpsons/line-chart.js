@@ -1,13 +1,13 @@
 var margin = {top: 20, right: 10, bottom: 40, left: 40},
     width = 380 - margin.left - margin.right,
-    height = 220 - margin.top - margin.bottom;
+    height = 260 - margin.top - margin.bottom;
 
 
 var blue = '#3498DB'
     , black = '#2C3E50'
     , red = '#E74C3C'
     , purple = '#9b59b6'
-    , green = "#27ae60"
+    , green = "#1abc9c"
 
 var blueData = [
   {x: 1, y: 6, col: green},

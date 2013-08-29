@@ -1,14 +1,14 @@
 app.directive('lineChart', function(){
 
   var margin = { top: 40, right: 20, bottom: 55, left: 45 }
-    , width = 300 - margin.left - margin.right
+    , width = 320 - margin.left - margin.right
     , height = 300 - margin.top - margin.bottom
     //flatui colors
     , blue = '#3498DB'
     , black = '#2C3E50'
     , red = '#E74C3C'
     , purple = '#9b59b6'
-    , green = '#27ae60'
+    , green = '#1abc9c'
 
     , x = d3.scale.linear()
       .domain([0,100])

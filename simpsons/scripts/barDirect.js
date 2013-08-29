@@ -7,7 +7,7 @@ app.directive('bar', function(){
     , black = '#2C3E50'
     , red = '#E74C3C'
     , purple = '#9b59b6'
-    , green = '#27ae60'
+    , green = '#1abc9c'
 
   var x = d3.scale.linear()
             .range([0,width]);

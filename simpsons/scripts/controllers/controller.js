@@ -63,6 +63,18 @@ app.controller('MainCtrl', ['$scope', function($scope) {
       }
     }
 
+    $scope.pdox = "no";
+
+    $scope.$watch("combined.male.acceptance+ combined.female.acceptance", function(val){
+      if( combined.male.acceptance > combined.female.acceptance ) {
+        $scope.pdox = "yes";
+        console.log("LOG:","goodbye");
+      }else{
+        $scope.pdox = "no";
+        console.log("LOG:","hello");
+      }
+    })
+
   $scope.updateProportions = function(p, gender){
     // adjust the ratio of women that applied to each department
     var p = Number(p) / 100
@@ -77,6 +89,8 @@ app.controller('MainCtrl', ['$scope', function($scope) {
     departments.hard[gender].admitted = pop[gender] * proportions.hard[gender] * rates[gender].hard
 
     combined[gender].acceptance = (departments.easy[gender].admitted + departments.hard[gender].admitted) / pop[gender]
+
+
 
   };
 }]);
