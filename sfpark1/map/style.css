@@ -1,0 +1,35 @@
+html, body{
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.stations, .stations svg {
+  position: absolute;
+}
+
+.stations svg {
+/*      width: 60px;
+  height: 20px;*/
+  padding-right: 100px;
+  font: 10px sans-serif;
+}
+
+.stations .marker {
+  
+  stroke: white;
+  stroke-width: 1px;
+  box-sizing: border-box;
+}
+
+#slider{
+  width: 50%;
+  margin: 30px 0px 30px 30px;
+}
+
+#current-time{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
+}
