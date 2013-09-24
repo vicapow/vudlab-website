@@ -13,11 +13,6 @@
 	left: 30%;
 }
 
-.img-circle{
-	border: solid #ccc 15px;
-	/*box-shadow:  0 0 15px rgba(0,0,0,.7);*/
-}
-
 h1, h2, h3, h4, p, a, body {
 		font-family: Lato;
 }
@@ -30,7 +25,7 @@ h1, h2, h3, h4, p, a, body {
 }
 
 ul{
-	list-style-type: square;
+	list-style-type: none;
 }
 
 .show ul>li{
