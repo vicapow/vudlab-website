@@ -4,3 +4,30 @@ add video thumbnails later
 make links open in new window
 blur the top image, make it darker
 add multiple images to the top
+
+
+/vis index.html - head/foot front page, refs libraries and stylesheets
+/views holds pgs of vud site
+/new holds assets and stylesheets
+/views main.html holds main page sans head
+
+
+
+CMDS 
+
+sublime
+ctrl+p - index of all 
+ctrl+shift+up moves selected text up
+ctrl+l selects current line
+ctrl +x cuts the current line
+tag + tab autocomplete html tag
+
+git
+git pull (updates yr repo w online v)
+git push (updates online v w yr last commit)
+git status (shows updates since last commit)
+git add . (adds all new files to next commit)
+git commit -a (commits all changes since last)
+
+
+
