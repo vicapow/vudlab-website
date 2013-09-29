@@ -28,6 +28,12 @@ git push (updates online v w yr last commit)
 git status (shows updates since last commit)
 git add . (adds all new files to next commit)
 git commit -a (commits all changes since last)
+on commit summarize changes then ctrl+O, enter, ctrl+x
+git mv oldname newname (rename instead of on desktop)
+git rm filename (delete file instead of on desktop)
 
+Stay on gh-pages vs master
+/cmds
 
+BOOTSTRAP
 

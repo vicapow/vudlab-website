@@ -14,11 +14,11 @@
 }
 
 h1, h2, h3, h4, p, a, body {
-		font-family: Lato;
+	font-family: Lato;
 }
 
 .show{
-	background: 	rgba(255,210,150,0.15);
+	background: rgba(255,210,150,0.15);
 	padding-top: 15px;
 	padding-bottom: 15px;
 	border-radius: 6px;
