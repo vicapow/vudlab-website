@@ -1,0 +1,552 @@
+[
+  {
+    "code": "RM",
+    "name": "Richmond",
+    "x": 337.2519027299527,
+    "y": 97.24952566866301,
+    "nameX": -53,
+    "nameY": -17,
+    "routes": [
+      "orange",
+      "red"
+    ]
+  },
+  {
+    "code": "EN",
+    "name": "El Cerrito Del Norte",
+    "x": 378.7681505397055,
+    "y": 96.61348564588465,
+    "nameX": -2,
+    "nameY": -16,
+    "routes": [
+      "orange",
+      "red"
+    ]
+  },
+  {
+    "code": "EP",
+    "name": "El Cerrito Plaza",
+    "x": 406.7192649880145,
+    "y": 109.35490167293699,
+    "nameX": -99,
+    "nameY": 7,
+    "routes": [
+      "orange",
+      "red"
+    ]
+  },
+  {
+    "code": "NB",
+    "name": "North Berkeley",
+    "x": 409.03110342553816,
+    "y": 129.85777184832375,
+    "nameX": -96,
+    "nameY": 4,
+    "routes": [
+      "orange",
+      "red"
+    ]
+  },
+  {
+    "code": "BK",
+    "name": "Berkeley",
+    "x": 409.4475327723846,
+    "y": 147.93217596529985,
+    "nameX": -59,
+    "nameY": 2,
+    "routes": [
+      "orange",
+      "red"
+    ]
+  },
+  {
+    "code": "AS",
+    "name": "Ashby",
+    "x": 407.04815876570535,
+    "y": 169.29698920819445,
+    "nameX": -51,
+    "nameY": 3,
+    "routes": [
+      "orange",
+      "red"
+    ]
+  },
+  {
+    "code": "MA",
+    "name": "MacArthur",
+    "x": 407.35532210963777,
+    "y": 191.98105409529992,
+    "nameX": -70,
+    "nameY": 2,
+    "routes": [
+      "orange",
+      "red",
+      "yellow"
+    ]
+  },
+  {
+    "code": "19",
+    "name": "19th St Oakland",
+    "x": 406.4762217817083,
+    "y": 211.281455807928,
+    "nameX": 10,
+    "nameY": 3,
+    "routes": [
+      "orange",
+      "red",
+      "yellow"
+    ]
+  },
+  {
+    "code": "12",
+    "name": "12th St Oakland City Center",
+    "x": 406.72745221162216,
+    "y": 231.4813762536133,
+    "nameX": 10,
+    "nameY": 4,
+    "routes": [
+      "orange",
+      "red",
+      "yellow"
+    ]
+  },
+  {
+    "code": "LM",
+    "name": "Lake Merritt",
+    "x": 424.1784636294283,
+    "y": 278.6640022135573,
+    "nameX": 15,
+    "nameY": 5,
+    "routes": [
+      "orange",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "code": "FV",
+    "name": "Fruitvale",
+    "x": 448.22722799262965,
+    "y": 306.6533642988233,
+    "nameX": 18,
+    "nameY": 3,
+    "routes": [
+      "orange",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "code": "CL",
+    "name": "Coliseum/Oak. Ariport",
+    "x": 471.8996493296977,
+    "y": 335.59136392283256,
+    "nameX": 12,
+    "nameY": -5,
+    "routes": [
+      "orange",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "code": "SL",
+    "name": "San Leandro",
+    "x": 495.4028909328207,
+    "y": 358.8716192563297,
+    "nameX": 16,
+    "nameY": 1,
+    "routes": [
+      "orange",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "code": "BF",
+    "name": "Bayfair",
+    "x": 512.6943613496702,
+    "y": 380.86474627215415,
+    "nameX": 19,
+    "nameY": 0,
+    "routes": [
+      "orange",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "code": "HY",
+    "name": "Hayward",
+    "x": 541.1807193209604,
+    "y": 411.7951991516957,
+    "nameX": -63,
+    "nameY": 8,
+    "routes": [
+      "orange",
+      "green"
+    ]
+  },
+  {
+    "code": "SH",
+    "name": "South Hayward",
+    "x": 577.610563062653,
+    "y": 445.74010956377725,
+    "nameX": -102,
+    "nameY": 13,
+    "routes": [
+      "orange",
+      "green"
+    ]
+  },
+  {
+    "code": "UC",
+    "name": "Union City",
+    "x": 632.3352013461757,
+    "y": 499.1954842959484,
+    "nameX": -75,
+    "nameY": 10,
+    "routes": [
+      "orange",
+      "green"
+    ]
+  },
+  {
+    "code": "FM",
+    "name": "Fremont",
+    "x": 671.2401071316656,
+    "y": 541.0354696054292,
+    "nameX": 20,
+    "nameY": 4,
+    "routes": [
+      "orange",
+      "green"
+    ]
+  },
+  {
+    "code": "CN",
+    "name": "Concord",
+    "x": 557.924535712367,
+    "y": 79.22608115762478,
+    "nameX": 16,
+    "nameY": 7,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "PH",
+    "name": "Pleasant Hill",
+    "x": 535.3732558397669,
+    "y": 98.47572374612093,
+    "nameX": 16,
+    "nameY": 3,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "WC",
+    "name": "Walnut Creek",
+    "x": 517.3768656339869,
+    "y": 115.95939369412139,
+    "nameX": 14,
+    "nameY": 7,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "LF",
+    "name": "Lafayette",
+    "x": 495.41654099955224,
+    "y": 140.1603028003825,
+    "nameX": 13,
+    "nameY": 6,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "OR",
+    "name": "Orinda",
+    "x": 475.8728397351224,
+    "y": 159.32197172119288,
+    "nameX": 13,
+    "nameY": 12,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "RR",
+    "name": "Rockridge",
+    "x": 445.36074513683093,
+    "y": 165.3618431656249,
+    "nameX": -20,
+    "nameY": -18,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "OW",
+    "name": "West Oakland",
+    "x": 352.1908433724288,
+    "y": 236.84746471214112,
+    "nameX": -70,
+    "nameY": -13,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "EM",
+    "name": "Embarcadero",
+    "x": 242.86626160625372,
+    "y": 248.8465810839366,
+    "nameX": -79,
+    "nameY": -8,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "MT",
+    "name": "Montgomery Street",
+    "x": 222.53345882618805,
+    "y": 266.8065262252371,
+    "nameX": -117,
+    "nameY": -6,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "PL",
+    "name": "Powell Street",
+    "x": 205.01421027183534,
+    "y": 284.4042817873834,
+    "nameX": -91,
+    "nameY": 2,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "CC",
+    "name": "Civic Center",
+    "x": 189.4310487190727,
+    "y": 303.76649480127264,
+    "nameX": -85,
+    "nameY": 4,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "16",
+    "name": "16th St Mission",
+    "x": 188.67462086226791,
+    "y": 327.0067256691307,
+    "nameX": -119,
+    "nameY": 4,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "24",
+    "name": "24th St Mission",
+    "x": 184.64212326612324,
+    "y": 347.66754772265904,
+    "nameX": -120,
+    "nameY": 4,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "GP",
+    "name": "Glen Park",
+    "x": 169.1385176723171,
+    "y": 363.5643937920547,
+    "nameX": 13,
+    "nameY": 8,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "BP",
+    "name": "Balboa Park",
+    "x": 158.79430814798923,
+    "y": 379.53695317035545,
+    "nameX": -82,
+    "nameY": -6,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "DC",
+    "name": "Daly City",
+    "x": 155.3311665538605,
+    "y": 398.1604901606404,
+    "nameX": -62,
+    "nameY": 4,
+    "routes": [
+      "red",
+      "yellow",
+      "blue",
+      "green"
+    ]
+  },
+  {
+    "code": "CM",
+    "name": "Colma",
+    "x": 160.98419984665702,
+    "y": 425.4218602246791,
+    "nameX": 16,
+    "nameY": 2,
+    "routes": [
+      "red",
+      "yellow",
+      "blue"
+    ]
+  },
+  {
+    "code": "CV",
+    "name": "Castro Valley",
+    "x": 577.5645999231376,
+    "y": 395.7569965145458,
+    "nameX": 4,
+    "nameY": -14,
+    "routes": [
+      "blue"
+    ]
+  },
+  {
+    "code": "ED",
+    "name": "Dublin/Pleasanton",
+    "x": 644.9518940068036,
+    "y": 397.96949249867816,
+    "nameX": 14,
+    "nameY": 3,
+    "routes": [
+      "blue"
+    ]
+  },
+  {
+    "code": "NC",
+    "name": "North Concord/Martinez",
+    "x": 576.5643980837334,
+    "y": 61.740233782883735,
+    "nameX": 16,
+    "nameY": 3,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "WP",
+    "name": "Pittsburg/Baypoint",
+    "x": 596.3787407822348,
+    "y": 40.58420126937335,
+    "nameX": 17,
+    "nameY": 3,
+    "routes": [
+      "yellow"
+    ]
+  },
+  {
+    "code": "SS",
+    "name": "South San Francisco",
+    "x": 177.56221861569213,
+    "y": 446.7829217383964,
+    "nameX": 16,
+    "nameY": 3,
+    "routes": [
+      "red",
+      "yellow",
+      "blue"
+    ]
+  },
+  {
+    "code": "SB",
+    "name": "San Bruno",
+    "x": 202.6848707394954,
+    "y": 469.8093068131293,
+    "nameX": -72,
+    "nameY": 13,
+    "routes": [
+      "red",
+      "yellow",
+      "blue"
+    ]
+  },
+  {
+    "code": "MB",
+    "name": "Millbrae",
+    "x": 221.54718851863413,
+    "y": 497.68394520164,
+    "nameX": -57,
+    "nameY": 14,
+    "routes": [
+      "red",
+      "yellow",
+      "blue"
+    ]
+  },
+  {
+    "code": "SO",
+    "name": "SFO Airport",
+    "x": 262.39984044084326,
+    "y": 470.4198474137625,
+    "nameX": 0,
+    "nameY": 24,
+    "routes": [
+      "red",
+      "yellow",
+      "blue"
+    ]
+  },
+  {
+    "code": "WD",
+    "name": "West Dublin / Pleasanton",
+    "x": 614.27280872887,
+    "y": 398.3866290775128,
+    "nameX": 2,
+    "nameY": 22,
+    "routes": [
+      "blue"
+    ]
+  }
+]

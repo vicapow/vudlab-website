@@ -1,0 +1,74 @@
+.water {
+  fill: #EEE;
+  stroke: #000000;
+}
+
+.background{
+  /*fill: #2ecc71;*/
+  fill: #111;
+}
+
+.stationG{
+	cursor: pointer;
+}
+
+.chord path {
+  fill-opacity: .67;
+  stroke: #000;
+  stroke-width: 0.5px;
+  stroke-opacity: 0.1;
+}
+
+#chart text {
+  font-size: 10px;
+}
+
+.number {
+  font-weight: 700;
+}
+.backwards {
+  text-anchor: end;
+}
+
+#chord{
+  height: 600px;
+/*  width: 675px;
+  position: absolute;
+  top: 50px;
+  right: 100px;*/
+}
+
+#chart{
+  border-radius: 100px;
+  background: #111;
+}
+
+#chord text{
+  fill: white;
+}
+
+body{
+  padding-top: 100px;
+}
+
+h1{
+  font-color: #eee;
+}
+.chordBlock{
+  cursor: pointer; 
+}
+
+.routes{
+  /*stroke: #eee;*/
+  stroke-width: 1px;
+  fill: none;
+}
+
+.tooltip{
+  font-size: 12px;
+  background: #444;
+  color: #eee;
+  padding: 10px;
+  border-radius: 6px;
+  min-width: 80px;
+}
