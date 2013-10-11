@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style/style.css">
 <style>
   body{
     background: #111;
     color: #ddd;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    padding-top: 35px;
+
+  }
+  text{
+    font-size: 14px;
   }
 </style>
 
-<link rel="stylesheet" href="style/style.css">
-
 <body>
   <div class="container">
-
-  <h1>BART ridership</h1>
-
+  <h1 style="font-size: 64px">BART ridership</h1>
+    Scroll to zoom. Click to pan. Mouseover to see relationships.    
     <div class="row">
       <div class="col-lg-6" id="map">
-        <div class="tooltip"></div>
+      <div class="tooltip"></div>
       </div>
       <div id="chord" class="col-lg-6"></div>
     </div>
     <div class="row">
       <div class="col-lg-6">
-        When you highlight a station, the other circles resize to represent the relative sources of ridership to that station. Like if you scroll over Embarcadero, and 24th Street gets big, it means a lot of riders go from 24th St. to Embarcadero.
+         When you highlight a station, the circles resize and the bands fade to represent the ridership between that station and the others. The buttons decide if we see ridership <em>to</em> or <em>from</em> the highlighted station.
+        Like if you scroll over Embarcadero, and 24th Street gets big, it means a lot of riders go from 24th St. to Embarcadero.
+        <div>Data from June 2013 (the month before the strike).</div>
       </div>
-      <div id="chord" class="col-lg-6"></div>
+      <div class="col-lg-6">
+        <form name="myForm">
+          <input type="radio" name="ToOrFrom" onclick="switcher('entries')" checked >Entries
+          <input type="radio" name="ToOrFrom" onclick="switcher('exits')">Exits
+        </form>
+        <br>
+        <br>
+        Created by <a href="https://twitter.com/LewisLehe">Lewis Lehe</a>, a UC-Berkeley PhD student in transportation engineering and president of Cal's <a href="http://vudlab.com">Visualizing Urban Data idealab</a>.
+      </div>
     </div>
   </div>
 
@@ -36,9 +52,9 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
 <script src="scripts/chord.js"></script>
 
+
 <!-- begin now -->
 <script>
-
 
 var emerald = '#2ecc71',
   lightBlue = '#3498db',
@@ -60,7 +76,6 @@ var emerald = '#2ecc71',
 
 var width = parseInt(d3.select('#map').style('width'))
     , mapRatio = .8
-    // , height = width * mapRatio;
     , height = 600;
 
 var colorScale = d3.scale.category20c();
@@ -70,7 +85,7 @@ var routeColors = d3.scale.ordinal()
 
 var moveRoutes = [[1,1],[-2,4],[0,-1],[3,0],[-2,-2]];
 
-var lonlat = [-122.25, 37.77];
+var lonlat = [-122.20, 37.77];
 
 var projection = d3.geo.mercator()
 //var projection = d3.geo.albers()
@@ -87,18 +102,25 @@ var zoom = d3.behavior.zoom()
     .scaleExtent([49004*.8, 3.5*49004])
     .on("zoom", zoomed);
 
-var svg = d3.select("#map").append("svg")
+var tooltip = d3.select(".tooltip")
+
+var svg = d3.select("#map").append("svg", ".tooltip")
     .attr("width", width)
     .attr("height", height);
-
 
 var g = svg.append("g")
     .attr("class", "mainG")
     .call(zoom);
 
-var topA = d3.select('#map').style('margin-top')
+var tooltip_arrow = tooltip.append("div")
+  .attr("class", "tooltip-arrow")
+
+var tooltip_inner = tooltip.append("div")
+  .attr("class","tooltip-inner")
 
 var rScale = d3.scale.sqrt().range([1,10]);
+
+var chordSVG;
 
 g.append("rect")
     .attr("class", "background")
@@ -107,23 +129,32 @@ g.append("rect")
 
 queue()
   .defer(d3.json, 'data/bayareaTOPO.json')
-  .defer(d3.csv, 'data/bart_stations.csv')
-  .defer(d3.csv, 'data/ridership.csv')
+  .defer(d3.json, 'data/locs.json')
   .defer(d3.json,'data/lasers.json')
-  .await(draw)
+  .await(setup)
 
 var locs;
 var ridership = {}
 var max;
 var map;
 
-function draw(err, bay, locs_raw, ride, routes_raw){
+///SACRED WHICH
+var which = 'entries';
+
+function switcher(new_which){
+  which = new_which;
+  draw();
+  setupChord();
+}
+
+var format = d3.format('0,000');
+
+function setup(err, bay, locs_raw, routes_raw){
 //bayarea
   var water = topojson.feature(bay, bay.objects.bayareaGEO);
   var routes = topojson.feature(routes_raw, routes_raw.objects.routes)
 
-  console.log("LOG:",routes);
-  map = routes
+  map = routes;
 
   locs = locs_raw;
 
@@ -138,7 +169,6 @@ function draw(err, bay, locs_raw, ride, routes_raw){
       .append("path")
       .attr("class", "routes")
       .attr("transform",function(d,i){
-        // if(i%2==0) return "translate(" + (i)*1.5 + ",0)"
         return "translate(" + moveRoutes[i][0] + "," + moveRoutes[i][1] + ")";
       })
       .attr("stroke", function(d,i){
@@ -149,31 +179,18 @@ function draw(err, bay, locs_raw, ride, routes_raw){
 
 
 //bart stations
-
-  ride.forEach(function(place){
-    d3.keys(place).forEach(function(key){
-      if(key!=='name') place[key] = +place[key];
-    })
-
-    ridership[place.name] = place;
-  });
-
-  max = d3.max(
-      _.map(ridership, function(place){
-        return d3.max(_.values(place));
-      })
-    )
-
-  rScale.domain([0, max])
-
   locs.forEach(function(d, i){
     d.gtfs_latitude = +d.gtfs_latitude;
     d.gtfs_longitude = +d.gtfs_longitude;
     d.index = +d.index;
-    //now add the ridership in
-    var place = d.id;
-    var r = ridership[place];
-    d['r'] = r;
+    for(var source in d.entries){
+      d.entries[source] = +d.entries[source]
+    }
+    for(var source in d.exits){
+      d.exits[source] = +d.exits[source]
+    }
+    d.total_exits = +d.total_exits;
+    d.total_entries = +d.total_entries;
   });
 
   var stationG = g.selectAll('stations')
@@ -181,135 +198,181 @@ function draw(err, bay, locs_raw, ride, routes_raw){
       .enter()
     .append("g")
     .attr("transform", placeIt)
-    .attr("class", "stationG")
+    .attr("class", "stationG");
 
-
-  stationG.append('circle')
-    .attr({
-      class: function(d,i){
-        return "station " + d.id;
-      },
-      r: function(d){
-        var num = +d.r.Exits;
-        return rScale(num)
-      },
-      fill: function(d,i){
-        return colorScale(d.index)
-      },
-      // stroke: "#222"
-    })
-
-  stationG.append("circle")
-    .attr("r", "15px")
-    .style("opacity", ".07")
-    .attr("fill","#ccc")
-    .on('mouseover', mOverCall)
-    .on('mouseout', mOutCall)
-  test = locs;
-
-  // drawTooltip();
-
+    draw('entries');
 
 } //end draw
 
-function undraw(){
+function draw(){
 
-  g.selectAll('.station')
-    .transition()
-    .duration(150)
-    .attr("r", function(d){
-        rScale.domain([0, max])
-        var num = +d.r.Exits;
-        return rScale(num)
-      })
-    .attr("fill", function(d,i){
-      return colorScale(d.index)
-    })
+  g.selectAll('circle').remove();
 
-    d3.select('.tooltip')
-      .transition()
-      .ease('cubic')
-      .duration(300)
-      .style("opacity","0")
-
-}
-
-function mOverCall(station, index){
-
-  // d3.select(this)
-  //   .style("opacity", "0.8")
-  //   .attr("fill","#ddd")
-
-  redraw(station, index);
-  var other_svg = d3.select(".chordSVG");
-  fade(.1, other_svg)(station, station.index);
-}
-
-function mOutCall(station, index){
-
-  undraw();
-  var other_svg = d3.select(".chordSVG");
-  fade(1, other_svg)(station, index);
-}
-
-function redraw(station, index){
-
-  var station_id = station.id;
-
+  //prep scale
   var max = d3.max(
-      _.map(ridership, function(place){
-        return place[station_id];
+      _.map(locs, function(d){
+        var dMax = (which=='entries') ? d.total_entries : d.total_exits;
+        return dMax;
       })
     );
 
-  rScale.domain([0,max]);
+  rScale.domain([0, max]);
 
-  // var string = '.station.' + station_id;
+  var stationG = d3.selectAll('.stationG')
 
-  // d3.select(string)
-  //   .transition()
-  //   .duration()
-  //   .attr("fill",d3.rgb(255,255,255) )
-
-    d3.select(".tooltip").transition().duration(100)
-        .style("opacity", .7);
-
-      d3.select(".tooltip").html( 
-           station.name + "<br>"
-          + "Total Exits: "+ station.r.Exits + "<br>"
-        )
-        .style("left", 25+projection([Number(station.gtfs_longitude),Number(station.gtfs_latitude)])[0]  + "px")
-        .style("top", -25 + projection([Number(station.gtfs_longitude),Number(station.gtfs_latitude)])[1]  + "px")
-
-  d3.selectAll('.station').transition().duration(400).ease('cubic')
-    .attr("r", function(d, i){
-      if(d.id!==station_id) return rScale(d.r[station_id])
-      return 18;
-    })
-    // .delay(300)
-    // .transition().duration(200)
-    .attr("fill", function(d,i){
-      if(d.id==station_id) return "#F13F3F";
-      else return colorScale(d.index);
-    })
-    .transition()
-    .duration(500)
-    .ease('bounce')
-    .attr("r", function(d,i){
-      if(d.id!==station_id) return rScale(d.r[station_id])
-      return 12;
+  stationG.append('circle')
+    .attr({
+      class: 'station',
+      r: function(d){
+        var num = (which=='entries') ? d.total_entries : d.total_exits;
+        return rScale(num);
+      },
+      fill: function(d){
+        return colorScale(d.index)
+      },
+      index: function(d){
+        return d.index;
+      }
     });
+
+  stationG.append("circle")
+    .attr("class","station-selector")
+    .attr("r", "15px")
+    .style("opacity", ".2")
+    .on('mouseover', function(d){
+      return mouseOverCall(d)
+    })
+    .on('mouseout', function(d){
+      return mouseOutCall(d)
+    })
+
+}
+
+function mouseOverCall(station){
+
+  redraw(station)
+  fade(.1, chordSVG)(station.index);
+}
+
+function mouseOutCall(station){
+  undraw();
+  fade(1, chordSVG)(station.index);
+}
+
+function redraw(station){
+
+  tooltip
+    .transition()
+    .duration(150)
+    .ease("cubic")
+    .style("left", 
+      -105 + projection([Number(station.gtfs_longitude),Number(station.gtfs_latitude)])[0]  
+      + "px")
+    .style("top", 
+      -20 + projection([Number(station.gtfs_longitude),Number(station.gtfs_latitude)])[1]
+      + "px")
+    .transition()
+    .duration(80)
+    .ease('linear')
+    .style("opacity", .8)
+
+  tooltip_inner
+    .html( 
+      station.name + "</div><br>"
+      + 
+      ((which=="entries") ? "Total Entries: " + format(station.total_entries) : "Total Exits: " + format(station.total_exits))
+      + 
+      "<div style='position:relative; width: 100%; height: 3px; margin-top: 3px; background-color:" + colorScale(station.index) + ";'></div>"
+    )
+
+
+  //prep scale
+  var max = d3.max(
+      _.map(locs, function(d){
+        return d[which][station.id];
+      })
+    );
+
+  rScale.domain([0, max]);
+
+
+  d3.selectAll('.station')
+    .filter(function(d){return d.id !== station.id; })
+    .transition()
+    .duration(300)
+    .ease('cubic')
+    .attr("r", function(d, i){
+      var num = d[which][station.id];
+      return rScale(num);
+    })
+
+  d3.select('circle[index="' + station.index + '"]')
+    .transition('linear')
+    .duration(300)
+    .ease('cubic')
+    .attr("r", "18px")
+    .transition()
+    .duration(425)
+    .ease('bounce')
+    .attr("r", "12px");
+
+}
+
+function undraw(){
+
+  var max = d3.max(
+      _.map(locs, function(d){
+        return d.total_entries;
+      })
+    );
+
+  rScale.domain([0, max]);
+
+  g.selectAll('.station')
+    .transition()
+    .duration(300)
+    .ease('cubic')
+    .attr("r", function(d){
+      if(which=='entries') return rScale(d.total_entries);
+      if(which='exits') return rScale(d.total_exits);
+    })
+    .attr("fill", function(d,i){
+      return colorScale(d.index);
+    })
+
+    tooltip
+      .transition()
+      .duration(300)
+      .ease('cubic')
+      .style("opacity","0")
 
 }
 
 ///draw chord diagram
 
-queue()
-.defer(d3.json, 'data/chord_ridership.json')
-.defer(d3.json, 'data/chordStations.json')
-.await(drawChord)
+
+setupChord('entries');
+
+function setupChord(){
+  // var path = (which == 'entries') ? 'data/chord_entries.json' : 'data/chord_exits.json'
+  if(which=='entries'){
+    queue()
+      .defer(d3.json, 'data/chord_entries.json')
+      .defer(d3.json, 'data/chordStations.json')
+    .await(drawChord)
+  }else{
+    queue()
+      .defer(d3.json, 'data/chord_exits.json')
+      .defer(d3.json, 'data/chordStations.json')
+    .await(drawChord)
+  }
+}
+
 
 function drawChord(err, ridership, stations){
+
+  // d3.select('#chord').remove();
+  d3.select('#chart').remove();
 
   var rows = ridership.rows.map(function(code) {
     for(var i = 0; i < stations.length; i++) {
@@ -324,14 +387,18 @@ function drawChord(err, ridership, stations){
     return row.slice(0, row.length-1);
   });
 
-  var display = d3.select("#chord");
-  display.append("div").attr("id", "chart");
+  var display = d3.select("#chord")
+    .append("div")
+    .attr("id", "chart");
+
   var chord = d3.chart.chord("#chart");
+
   chord.rows(rows)
   chord.update(data);
 
-}
 
+
+}
 
 
 function placeIt(d){
@@ -348,28 +415,6 @@ function zoomed() {
   g.selectAll(".stationG").attr("transform", placeIt);
 }
 
-function drawTooltip(){
-  console.log('firing drawTooltip')
-  var tooltip = d3.select(".tooltip");
-  d3.selectAll('.stationG')
-    .on("mousemove", function(d) { 
-      tooltip.transition().duration(100)
-        .style("opacity", .7)
-      tooltip.html( 
-           d.name + "<br>"
-          + "Total Exits: "+ d.r.Exits + "<br>"
-        )
-        .style("left", (d3.event.pageX + 20)  + "px")
-        .style("top", (d3.event.pageY - 50) + "px");     
-    })
-    .on("mouseout", function(d) {
-      d3.select(this).transition().duration()
-          .attr("stroke", "none")
-
-      tooltip.transition().duration(200)
-        .style("opacity", 0);
-    });
-} //end of drawtooltip
 
 
 </script>

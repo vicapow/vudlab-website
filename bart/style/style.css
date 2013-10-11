@@ -19,8 +19,9 @@
   stroke-opacity: 0.1;
 }
 
+
 #chart text {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .number {
@@ -32,10 +33,6 @@
 
 #chord{
   height: 600px;
-/*  width: 675px;
-  position: absolute;
-  top: 50px;
-  right: 100px;*/
 }
 
 #chart{
@@ -45,10 +42,6 @@
 
 #chord text{
   fill: white;
-}
-
-body{
-  padding-top: 100px;
 }
 
 h1{
@@ -65,10 +58,82 @@ h1{
 }
 
 .tooltip{
-  font-size: 12px;
-  background: #444;
-  color: #eee;
-  padding: 10px;
-  border-radius: 6px;
-  min-width: 80px;
+  -webkit-transition-delay: 0s;
+-webkit-transition-duration: 0.15s;
+-webkit-transition-property: opacity;
+-webkit-transition-timing-function: linear;
+box-sizing: border-box;
+color: rgb(52, 73, 94);
+display: block;
+/*font-family: Lato, Helvetica, Arial, sans-serif;*/
+font-size: 14px;
+/*height: 110px;*/
+/*left: -8px;*/
+line-height: 19px;
+margin-top: -3px;
+opacity: 1;
+padding-bottom: 9px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 5px;
+position: relative;
+top: -8px;
+z-index: 1030;
+opacity: 0;
+}
+
+.tooltip-arrow{
+  border-bottom-color: rgba(0, 0, 0, 0);
+border-bottom-style: solid;
+border-bottom-width: 0px;
+border-left-color: rgba(0, 0, 0, 0);
+border-left-style: solid;
+border-left-width: 9px;
+border-right-color: rgba(0, 0, 0, 0);
+border-right-style: solid;
+border-right-width: 9px;
+border-top-color: rgb(52, 73, 94);
+border-top-style: solid;
+border-top-width: 9px;
+bottom: 0px;
+box-sizing: border-box;
+color: rgb(52, 73, 94);
+display: block;
+/*font-family: Lato, Helvetica, Arial, sans-serif;*/
+font-size: 14px;
+height: 9px;
+left: 106.25px;
+line-height: 19px;
+margin-left: -9px;
+position: absolute;
+/*visibility: visible;*/
+width: 18px;
+}
+
+.tooltip-inner{
+  background-color: rgb(52, 73, 94);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  /*font-family: Lato, Helvetica, Arial, sans-serif;*/
+  font-size: 14px;
+  /*height: 96px;*/
+  line-height: 18px;
+  max-width: 200px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px;
+  text-align: center;
+  text-decoration: none;
+  /*visibility: visible;*/
+  /*width: 135px;*/
+}
+
+.station-selector{
+  fill: rgb(52, 73, 94);
 }

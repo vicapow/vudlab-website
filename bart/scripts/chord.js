@@ -18,7 +18,7 @@ var trans = svg.transition().duration(750),
       r1 = r0 * 1.2;
   var format = d3.format("3n")
 
-  var fill = d3.scale.category20c();
+  // var fill = d3.scale.category20c();
 
   self.update = function(data) {
     chord.matrix(data);
@@ -40,22 +40,26 @@ var trans = svg.transition().duration(750),
       .append("g")
         .attr("transform", "translate(" + (offset + w) / 2 + "," + (offset + h) / 2 + ")");
 
+      chordSVG = svg;
+
+    console.log("LOG:",chord.groups());
+
     svg.append("g")
       .selectAll("path")
         .data(chord.groups)
       .enter().append("path")
         .attr("class", "chordBlock")
-        .style("fill", function(d) { return fill(d.index); })
-        .style("stroke", function(d) { return fill(d.index); })
+        .style("fill", function(d) { return colorScale(d.index); })
+        .style("stroke", function(d) { return colorScale(d.index); })
         .attr("d", d3.svg.arc().innerRadius(r0).outerRadius(r1))
         .on("mouseover", function(d,i) {
-          var station = locs.filter(function(v){ return v.index == i; })[0];
-          redraw(station, i);
-          fade(.1, svg)(d,i)
+          var station = locs.filter(function(v){ return v.index == d.index; })[0];
+          redraw(station);
+          fade(.1, svg)(i);
         })
         .on("mouseout", function(d,i){
           undraw();
-          fade(1, svg)(d,i);
+          fade(1, svg)(i);
         });
  
     var ticks = svg.append("g")
@@ -138,7 +142,7 @@ var trans = svg.transition().duration(750),
       .selectAll("path")
         .data(chord.chords)
       .enter().append("path")
-        .style("fill", function(d) { return fill(d.target.index); })
+        .style("fill", function(d) { return colorScale(d.target.index); })
         .attr("d", d3.svg.chord().radius(r0))
         .style("opacity", 1);
   };
@@ -168,13 +172,11 @@ function groupTicks(d) {
 
 /** Returns an event handler for fading a given chord group. */
 function fade(opacity, svg) {
-  return function(g, i) {
+  return function(i) {
     svg.selectAll("g.chord path")
         .filter(function(d) {
           return d.source.index != i && d.target.index != i;
         })
-        // .transition()
-        // .duration()
         .style("opacity", opacity);
   };
 }
