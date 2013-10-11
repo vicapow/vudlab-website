@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<title>Stop by Stop</title>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="style/style.css">
@@ -19,8 +20,15 @@
 
 <body>
   <div class="container">
-  <h1 style="font-size: 64px">BART ridership</h1>
-    Scroll to zoom. Click to pan. Mouseover to see relationships.    
+    <div class="row">
+    <h1 class="col-lg-4" style="font-size: 64px">Stop to Stop</h1>
+      <div class="col-lg-8">
+        <strong>Map: </strong> Drag to pan. Scroll to zoom. On mouseover, circle areas evoke the share of ridership between (to or from) stations.
+        Data from June 2013 (the month before the strike). <br>
+        <strong>Chord diagram: </strong> Mouseover arcs to show ridership relations.
+        Made by <a href="https://twitter.com/LewisLehe">Lewis Lehe</a>, a Berkeley PhD student in transportation engineering and president of Cal's <a href="http://vudlab.com">Visualizing Urban Data idealab</a>. My <a href="https://medium.com/p/ec6139b54795">take on the strike</a>.
+      </div>    
+    </div>
     <div class="row">
       <div class="col-lg-6" id="map">
       <div class="tooltip"></div>
@@ -28,19 +36,12 @@
       <div id="chord" class="col-lg-6"></div>
     </div>
     <div class="row">
-      <div class="col-lg-6">
-         When you highlight a station, the circles resize and the bands fade to represent the ridership between that station and the others. The buttons decide if we see ridership <em>to</em> or <em>from</em> the highlighted station.
-        Like if you scroll over Embarcadero, and 24th Street gets big, it means a lot of riders go from 24th St. to Embarcadero.
-        <div>Data from June 2013 (the month before the strike).</div>
-      </div>
+
       <div class="col-lg-6">
         <form name="myForm">
-          <input type="radio" name="ToOrFrom" onclick="switcher('entries')" checked >To
-          <input type="radio" name="ToOrFrom" onclick="switcher('exits')">From
+          <input type="radio" name="ToOrFrom" onclick="switcher('entries')" checked style="cursor: pointer;">From <br>
+          <input type="radio" name="ToOrFrom" onclick="switcher('exits')" style="cursor: pointer;">To
         </form>
-        <br>
-        <br>
-        Created by <a href="https://twitter.com/LewisLehe">Lewis Lehe</a>, a UC-Berkeley PhD student in transportation engineering and president of Cal's <a href="http://vudlab.com">Visualizing Urban Data idealab</a>.
       </div>
     </div>
   </div>
@@ -415,6 +416,14 @@ function zoomed() {
   g.selectAll(".stationG").attr("transform", placeIt);
 }
 
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-44771621-1', 'vudlab.com');
+  ga('send', 'pageview');
 
 </script>
