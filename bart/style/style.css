@@ -1,0 +1,140 @@
+.water {
+  fill: #EEE;
+  stroke: #000000;
+}
+
+.background{
+  /*fill: #2ecc71;*/
+  fill: #111;
+}
+
+.stationG{
+	cursor: pointer;
+}
+
+.chord path {
+  fill-opacity: .67;
+  stroke: #000;
+  stroke-width: 0.5px;
+  stroke-opacity: 0.1;
+}
+
+
+#chart text {
+  font-size: 12px;
+}
+
+.number {
+  font-weight: 700;
+}
+.backwards {
+  text-anchor: end;
+}
+
+#chord{
+  height: 600px;
+}
+
+#chart{
+  border-radius: 100px;
+  background: #111;
+}
+
+#chord text{
+  fill: white;
+}
+
+h1{
+  font-color: #eee;
+}
+.chordBlock{
+  cursor: pointer; 
+}
+
+.routes{
+  /*stroke: #eee;*/
+  stroke-width: 1px;
+  fill: none;
+}
+
+.tooltip{
+  -webkit-transition-delay: 0s;
+-webkit-transition-duration: 0.15s;
+-webkit-transition-property: opacity;
+-webkit-transition-timing-function: linear;
+box-sizing: border-box;
+color: rgb(52, 73, 94);
+display: block;
+/*font-family: Lato, Helvetica, Arial, sans-serif;*/
+font-size: 14px;
+/*height: 110px;*/
+/*left: -8px;*/
+line-height: 19px;
+margin-top: -3px;
+opacity: 1;
+padding-bottom: 9px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 5px;
+position: relative;
+top: -8px;
+z-index: 1030;
+opacity: 0;
+pointer-events: none;
+}
+
+.tooltip-arrow{
+  border-bottom-color: rgba(0, 0, 0, 0);
+border-bottom-style: solid;
+border-bottom-width: 0px;
+border-left-color: rgba(0, 0, 0, 0);
+border-left-style: solid;
+border-left-width: 9px;
+border-right-color: rgba(0, 0, 0, 0);
+border-right-style: solid;
+border-right-width: 9px;
+border-top-color: rgb(52, 73, 94);
+border-top-style: solid;
+border-top-width: 9px;
+bottom: 0px;
+box-sizing: border-box;
+color: rgb(52, 73, 94);
+display: block;
+/*font-family: Lato, Helvetica, Arial, sans-serif;*/
+font-size: 14px;
+height: 9px;
+left: 106.25px;
+line-height: 19px;
+margin-left: -9px;
+position: absolute;
+/*visibility: visible;*/
+width: 18px;
+}
+
+.tooltip-inner{
+  background-color: rgb(52, 73, 94);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  /*font-family: Lato, Helvetica, Arial, sans-serif;*/
+  font-size: 14px;
+  /*height: 96px;*/
+  line-height: 18px;
+  max-width: 200px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px;
+  text-align: center;
+  text-decoration: none;
+  /*visibility: visible;*/
+  /*width: 135px;*/
+}
+
+.station-selector{
+  fill: rgb(52, 73, 94);
+}

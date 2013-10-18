@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style/style.css">
+<style>
+  body{
+    background: #111;
+    color: #ddd;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+  }
+  text{
+    font-size: 14px;
+  }
+</style>
+
+<body>
+  <div class="container">
+
+  <h1>BART ridership</h1>
+
+    <div class="row">
+      <div class="col-lg-6" id="map">
+        <div class="tooltip"></div>
+      </div>
+      <div id="chord" class="col-lg-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        When you highlight a station, the other circles resize to represent the relative sources of ridership to that station. Like if you scroll over Embarcadero, and 24th Street gets big, it means a lot of riders go from 24th St. to Embarcadero.
+      </div>
+      <div id="chord" class="col-lg-6"></div>
+    </div>
+  </div>
+
+</body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script src="scripts/chord.js"></script>
+
+<!-- begin now -->
+<script>
+
+
+var emerald = '#2ecc71',
+  lightBlue = '#3498db',
+  midBlue = '#2980b9',
+  midnightBlue = '#2c3e50',
+  pomegranate = '#c0392b',
+  brightRed = '#e74c3c',
+  clouds = '#ecf0f1',
+  silver = '#bdc3c7',
+  concrete = '#95a5a6',
+  asbestos = '#7f8c8d',
+  asphalt = '#34495e',
+  turquoise = '#1abc9c',
+  greenSea = '#16a085',
+  sunflower = '#f1c40f',
+  orange = '#f39c12',
+  lightPurple = '#9b59b6',
+  darkPurple = '#8e44ad';
+
+var width = parseInt(d3.select('#map').style('width'))
+    , mapRatio = .8
+    , height = 600;
+
+var colorScale = d3.scale.category20c();
+var routeColors = d3.scale.ordinal()
+  .domain(d3.range(5))
+  .range(["#2c5aa0","#008000","#ffff00","#ff6600","#ff0000"])
+
+var moveRoutes = [[1,1],[-2,4],[0,-1],[3,0],[-2,-2]];
+
+var lonlat = [-122.20, 37.77];
+
+var projection = d3.geo.mercator()
+//var projection = d3.geo.albers()
+  .center(lonlat)  
+  .scale(49004)
+  .translate([width/2, height/2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var zoom = d3.behavior.zoom()
+    .translate(projection.translate())
+    .scale(projection.scale())
+    .scaleExtent([49004*.8, 3.5*49004])
+    .on("zoom", zoomed);
+
+var svg = d3.select("#map").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+var g = svg.append("g")
+    .attr("class", "mainG")
+    .call(zoom);
+
+var topA = d3.select('#map').style('margin-top')
+
+var rScale = d3.scale.sqrt().range([1,10]);
+
+g.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height);
+
+queue()
+  .defer(d3.json, 'data/bayareaTOPO.json')
+  .defer(d3.csv, 'data/bart_stations.csv')
+  .defer(d3.csv, 'data/ridership.csv')
+  .defer(d3.json,'data/lasers.json')
+  .await(draw)
+
+var locs;
+var ridership = {}
+var max;
+var map;
+
+function draw(err, bay, locs_raw, ride, routes_raw){
+//bayarea
+  var water = topojson.feature(bay, bay.objects.bayareaGEO);
+  var routes = topojson.feature(routes_raw, routes_raw.objects.routes)
+
+  map = routes
+
+  locs = locs_raw;
+
+  var outline = g.append("path")
+      .datum(water)
+      .attr("class", "water")
+      .attr("d", path);
+
+  var routesOutline = g.selectAll('routes')
+      .data(routes.features)
+        .enter()
+      .append("path")
+      .attr("class", "routes")
+      .attr("transform",function(d,i){
+        // if(i%2==0) return "translate(" + (i)*1.5 + ",0)"
+        return "translate(" + moveRoutes[i][0] + "," + moveRoutes[i][1] + ")";
+      })
+      .attr("stroke", function(d,i){
+        return routeColors(i)
+      })
+      .attr("opacity",0.5)
+      .attr("d", path);
+
+
+//bart stations
+
+  ride.forEach(function(place){
+    d3.keys(place).forEach(function(key){
+      if(key!=='name') place[key] = +place[key];
+    })
+
+    ridership[place.name] = place;
+  });
+
+  max = d3.max(
+      _.map(ridership, function(place){
+        return d3.max(_.values(place));
+      })
+    )
+
+  rScale.domain([0, max])
+
+  locs.forEach(function(d, i){
+    d.gtfs_latitude = +d.gtfs_latitude;
+    d.gtfs_longitude = +d.gtfs_longitude;
+    d.index = +d.index;
+    //now add the ridership in
+    var place = d.id;
+    var r = ridership[place];
+    d['r'] = r;
+  });
+
+  var stationG = g.selectAll('stations')
+    .data(locs)
+      .enter()
+    .append("g")
+    .attr("transform", placeIt)
+    .attr("class", "stationG")
+
+
+  stationG.append('circle')
+    .attr({
+      class: function(d,i){
+        return "station " + d.id;
+      },
+      r: function(d){
+        var num = +d.r.Exits;
+        return rScale(num)
+      },
+      fill: function(d,i){
+        return colorScale(d.index)
+      },
+      // stroke: "#222"
+    })
+
+  stationG.append("circle")
+    .attr("r", "15px")
+    .style("opacity", ".07")
+    .attr("fill","#ccc")
+    .on('mouseover', mOverCall)
+    .on('mouseout', mOutCall)
+  test = locs;
+
+  // drawTooltip();
+
+
+} //end draw
+
+
+function mOverCall(station, index){
+
+  redraw(station, index);
+  var other_svg = d3.select(".chordSVG");
+  fade(.1, other_svg)(station, station.index);
+}
+
+function mOutCall(station, index){
+
+  undraw();
+  var other_svg = d3.select(".chordSVG");
+  fade(1, other_svg)(station, index);
+}
+
+function undraw(){
+
+  g.selectAll('.station')
+    .transition()
+    .duration(300)
+    .ease('cubic')
+    .attr("r", function(d){
+      rScale.domain([0, max])
+      var num = +d.r.Exits;
+      return rScale(num);
+    })
+    .attr("fill", function(d,i){
+      return colorScale(d.index);
+    })
+
+    d3.select('.tooltip')
+      .transition()
+      .duration(300)
+      .ease('cubic')
+      .style("opacity","0")
+
+}
+
+function redraw(station, index){
+
+  var station_id = station.id;
+
+  var max = d3.max(
+      _.map(ridership, function(place){
+        return place[station_id];
+      })
+    );
+
+  rScale.domain([0,max]);
+
+  d3.select(".tooltip")
+    .transition()
+    .duration(100)
+    .style("opacity", .8);
+
+  d3.select(".tooltip")
+    .html( 
+      station.name + "<br>"
+      + "Total Exits: "+ station.r.Exits + "<br>"
+    )
+    .style("left", 
+      25+projection([Number(station.gtfs_longitude),Number(station.gtfs_latitude)])[0]  
+      + "px")
+    .style("top", 
+      -25 + projection([Number(station.gtfs_longitude),Number(station.gtfs_latitude)])[1]
+      + "px")
+
+  d3.selectAll('.station').transition().duration(400).ease('cubic')
+    .attr("r", function(d, i){
+      if(d.id!==station_id) return rScale(d.r[station_id])
+      return 18;
+    })
+    .attr("fill", function(d,i){
+      if(d.id==station_id) return "#F13F3F";
+      else return colorScale(d.index);
+    })
+    .transition()
+    .duration(500)
+    .ease('bounce')
+    .attr("r", function(d,i){
+      if(d.id!==station_id) return rScale(d.r[station_id])
+      return 12;
+    });
+
+}
+
+///draw chord diagram
+
+queue()
+.defer(d3.json, 'data/chord_ridership.json')
+.defer(d3.json, 'data/chordStations.json')
+.await(drawChord)
+
+function drawChord(err, ridership, stations){
+
+  var rows = ridership.rows.map(function(code) {
+    for(var i = 0; i < stations.length; i++) {
+      if(stations[i].code === code+"") return stations[i].name;
+    }
+  })
+
+  var data = ridership.data
+  data = data.slice(0, data.length-1);
+
+  data = data.map(function(row) {
+    return row.slice(0, row.length-1);
+  });
+
+  var display = d3.select("#chord");
+  display.append("div").attr("id", "chart");
+  var chord = d3.chart.chord("#chart");
+  chord.rows(rows)
+  chord.update(data);
+
+}
+
+
+
+function placeIt(d){
+  var t = projection([d.gtfs_longitude,d.gtfs_latitude]);
+  return "translate(" + t[0] + "," + t[1] + ")";
+}
+
+
+function zoomed() {
+  projection.translate(d3.event.translate).scale(d3.event.scale);
+  // console.log("LOG:",d3.event.scale);
+  g.selectAll(".water").attr("d", path);
+  g.selectAll('.routes').attr("d", path);
+  g.selectAll(".stationG").attr("transform", placeIt);
+}
+
+function drawTooltip(){
+  console.log('firing drawTooltip')
+  var tooltip = d3.select(".tooltip");
+  d3.selectAll('.stationG')
+    .on("mousemove", function(d) { 
+      tooltip.transition().duration(100)
+        .style("opacity", .7)
+      tooltip.html( 
+           d.name + "<br>"
+          + "Total Exits: "+ d.r.Exits + "<br>"
+        )
+        .style("left", (d3.event.pageX + 20)  + "px")
+        .style("top", (d3.event.pageY - 50) + "px");     
+    })
+    .on("mouseout", function(d) {
+      d3.select(this).transition().duration()
+          .attr("stroke", "none")
+
+      tooltip.transition().duration(200)
+        .style("opacity", 0);
+    });
+} //end of drawtooltip
+
+
+</script>
