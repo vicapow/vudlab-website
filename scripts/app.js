@@ -18,6 +18,9 @@ var app = angular.module('mainApp', [])
       .when('/events', {
         templateUrl: 'views/event.html'
       })
+      .when('/test', {
+        templateUrl: 'views/bartest.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
