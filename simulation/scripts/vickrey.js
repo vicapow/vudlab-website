@@ -1,18 +1,12 @@
 
 //=========thinking!=========
-var timeRange = d3.range(0,600),
-	times = _.map(timeRange, function(t){
-		return {
-			time: t,
-			q: []
-		}
-	}),
+var timeRange = d3.range(0,500),
 	ddp = d3.range(200, 300), //"desired departure period"
 	alpha = 1,
 	beta = .5,
 	gamma = -1.5,
-	numAgents = 200,
-	s = 1,
+	numAgents = 1600,
+	s = 8,
 	agents = _.map(d3.range(numAgents), function(d,i){
 		var index = Math.floor(i/numAgents * ddp.length)
 		var w_time = ddp[index];
@@ -27,6 +21,7 @@ function shuffle(o){ //v1.0
 function putAgentsToTimes(agent){
 	var time = agent.a;
 	times[time].q.push(agent);
+	times[time].a.push(agent);
 }
 
 var loopNumber = 0;
@@ -62,7 +57,7 @@ function Agent(w_time, index){
 				delayC = (delay > 0) ? delay*beta : delay*gamma,
 				prospC = travelC + delayC; //the prospective cost
 
-			if(prospC < newC) {
+			if(prospC < newC - .5) {
 				this.a = t.time;
 				newC = prospC;
 			}
@@ -76,17 +71,28 @@ function Agent(w_time, index){
 
 //now we decide who gets served when
 function process(){ 
+	var cumA = 0,
+		cumD = 0;
+
 	times.forEach(function(interval,i){
-		// if(interval.q.length == 0 ) return;
+
 		var served = interval.q.slice(0, s); //select the first s travelers in the queue
 
 		served.forEach(function(agent){ //give these served travelers this departure time
 			agent.d = interval.time;
+			interval.d.push(agent);
 		})
+
+		cumA+=interval.a.length;
+		interval.cumA = cumA;
+
+		cumD+=interval.d.length;
+		interval.cumD = cumD;
 
 		var spillover = interval.q.slice(s); //select the ones that didn't make it
 
 		if(spillover.length>0) times[i+1].q = spillover.concat(times[i+1].q); //push whatever is left of the q to the next times' q
+	
 	})
 }
 
@@ -94,8 +100,15 @@ function process(){
 
 agents = shuffle(agents);
 
-times.forEach(function(time){
-	time.q = [];
+times = _.map(timeRange, function(t){
+	return {
+		time: t,
+		q: [],
+		a: [],
+		d: [],
+		cumA: 0,
+		cumD: 0
+	}
 })
 
 agents.forEach(function(agent){
@@ -104,10 +117,6 @@ agents.forEach(function(agent){
 
 process();
 
-agents.slice(0,5).forEach(function(agent){
-	agent.evalCost();
-	agent.choose();
-})
 
 //=============drawing!===============
 
@@ -135,12 +144,16 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left");
 
-var line = d3.svg.line()
+var lineD = d3.svg.line()
     .x(function(d) { return x(d.time); })
-    .y(function(d) { return y(d.q.length); });
+    .y(function(d) { return y(d.cumD); });
+
+var lineA = d3.svg.line()
+    .x(function(d) { return x(d.time); })
+    .y(function(d) { return y(d.cumA); });
 
 x.domain(d3.extent(times, function(d) { return d.time; }));
-y.domain(d3.extent(times, function(d) { return d.q.length; }));
+y.domain([0,2000]);
 
 var gXAxis = svg.append("g")
     .attr("class", "x axis")
@@ -155,7 +168,7 @@ var gYAxis = svg.append("g")
     .attr("y", 6)
     .attr("dy", ".71em")
     .style("font-size","15px")
-    .style("text-anchor", "end")
+    .style("text-alonchor", "end")
     .text("Queue size (# travelers)");
 
 svg.append("rect") //color in the DDP
@@ -168,10 +181,15 @@ svg.append("rect") //color in the DDP
 			width: x(100)
 		})
 
-var path = svg.append("path")
+var pathA = svg.append("path")
     .datum(times)
-    .attr("class", "line")
-    .attr("d", line);
+    .attr("class", "line A")
+    .attr("d", lineA);
+
+var pathD = svg.append("path")
+    .datum(times)
+    .attr("class", "line D")
+    .attr("d", lineD);
 
 //==============the redraw function and transition=======
 
@@ -181,26 +199,36 @@ var transition = d3.transition()
 
 function redraw(){
 
-	x.domain(d3.extent(times, function(d) { return d.time; }));
-	y.domain(d3.extent(times, function(d) { return d.q.length; }));
+	pathA.datum(times)
+	// .transition(3)
+	.attr("d", lineA);
 
-	xAxis.scale(x);
-	yAxis.scale(y);
+	pathD.datum(times)
+	// .transition(3)
+	.attr("d", lineD);
 
-	gXAxis.transition().call(xAxis);
-	gYAxis.transition().call(yAxis);
-
-	path.datum(times)
-	.transition(3)
-	.attr("d", line);
 }
 
 //=============loop the program!===============
 
 setInterval(function(){
 
-	times.forEach(function(time){
-		time.q = [];
+	agents = shuffle(agents);
+
+	agents.slice(0,1).forEach(function(agent){
+		agent.evalCost();
+		agent.choose();
+	})
+
+	times = _.map(timeRange, function(t){
+		return {
+			time: t,
+			q: [],
+			a: [],
+			d: [],
+			cumA: 0,
+			cumD: 0
+		}
 	})
 
 	agents.forEach(function(agent){
@@ -211,12 +239,4 @@ setInterval(function(){
 
 	redraw();
 
-	agents = shuffle(agents);
-
-	agents.slice(0,5).forEach(function(agent){
-		agent.evalCost();
-		agent.choose();
-	})
-
-
-}, 5)
+}, 1)
