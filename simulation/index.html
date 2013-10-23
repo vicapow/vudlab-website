@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+<!-- ============== CSS ===================== -->
+    <title>Simulation</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
+
+    <style>
+
+    body {
+      font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 2px;
+    }
+
+    text{
+      font-size: 12px;
+    }
+
+    </style>
+
+  </head>
+
+<!-- ============== BODY =================== -->
+
+  <body>
+    <div id="chart"></div>
+  </body>
+
+<!-- ============== LIBRARIES =================== -->
+
+    <script src="libraries/underscore.min.js"></script>    
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<!-- ============== SCRIPTS =================== -->
+
+    <script src="scripts/vickrey.js"></script>
+
+</html>
