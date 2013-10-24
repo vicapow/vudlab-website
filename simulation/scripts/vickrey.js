@@ -239,4 +239,4 @@ setInterval(function(){
 
 	redraw();
 
-}, .1)
+}, 1)
