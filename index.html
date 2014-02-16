@@ -1,147 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Visualizing Urban Data IdeaLab</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <!-- Bootstrap core CSS -->
-    <link href="new/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="new/bootstrap/css/bootstrap-glyphicons.css">
-    <!-- personalized stylesheet -->
-    <link href="new/bootstrap/css/juju.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="new/carousel/carousel.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body ng-app="mainApp">
-    <div class="navbar-wrapper">
-      <div class="container">
-        <div class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-    	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-    	      <span class="icon-bar"></span>
-    	      <span class="icon-bar"></span>
-    	      <span class="icon-bar"></span>
-    	    </button>
-            <a class="navbar-brand" href="#">VUDlab</a>
-            <div class="nav-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#learn">Learn</a></li>
-                <li><a href="#workouts">d3 Workouts</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#mentions">Mentions</a></li>
-                <li><a href="mailto:main@vudlab.com?Subject=I%20love%20you%20guys!">Contact</a></li>
-              </ul>
-              <p class="pull-right" style="color: #999; line-height: 20px; padding-top: 20px; padding-bottom:15px;">University of California-Berkeley</p>
-            </div>
-          </div>
-        </div>
+  <title>Visualizing Urban Data ideaLab</title>
 
-      </div>
-    </div>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
 
+  <!-- Add custom CSS here -->
+  <link href="css/modern-business.css" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Fenix' rel='stylesheet' type='text/css'>
 
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <!-- Indicators -->
-     <!--<ol class="carousel-indicators"> 
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li> 
-         <li data-target="#myCarousel" data-slide-to="2"></li> 
-         <li data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>-->
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="new/bootstrap/img/sf-map-cropped.jpg" alt="Wikimedia Commons">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1 id="launch">Visualizing Urban <br> Data  IdeaLab</h1>
-              <h4>@ UC Berkeley</h4>
-            </div>
-          </div>
-        </div>
-<!--   <div class="item">
-          <img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:Second slide" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Your ideas here.</h1>
-              <p>You're lucky. You're here for the</p>
-              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:Second slide" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Your ideas here.</h1>
-              <p>You're lucky. You're here for the</p>
-              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div> 
-        <div class="item">
-          <img data-src="holder.js/1500x500/auto/#777:#7a7a7a/text:Second slide" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Your ideas here.</h1>
-              <p>You're lucky. You're here for the</p>
-              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div>-->
-      </div>
-<!--       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> -->
-    </div><!-- /.carousel -->
+</head>
 
+<body ng-app="mainApp">
 
+  <ng-include src="'views/header.html'"></ng-include>
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+  <ng-view></ng-view>
 
-      <ng-view></ng-view>
+  <ng-include src="'views/footer.html'"></ng-include>
 
-      <!-- /END THE FEATURETTES -->
+</body>
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/modern-business.js"></script>
 
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-route.js"></script>
 
-      <!-- FOOTER -->
-      <div style="clear:both;"></div>
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&middot; &copy; 2013 Visualizing Urban Data IdeaLab &middot; sponsored by <a href="http://bigideas.berkeley.edu/">Big Ideas@Berkeley</a> &middot;</p>
-      </footer>
+<script>
 
-    </div><!-- /.container -->
+var routes = [
+  {route: '/', html: 'views/home.html' },
+  {route: '/about' , html: 'views/about.html'},
+  {route: '/learn', html: 'views/learn.html'},
+  {route: '/workouts', html: 'views/workouts.html'},
+  {route: '/events', html: 'views/events.html'},
+  {route: '/portfolio', html: 'views/portfolio.html'}
+];
 
+var app = angular.module('mainApp', ['ngRoute'])
+  .config(function($routeProvider) {
 
+    for (var i = 0; i < routes.length; i++) {
+      var r = routes[i];
+      $routeProvider.when(r.route, {templateUrl: r.html})
+    };
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="new/assets/js/jquery.js"></script>
-    <script src="new/bootstrap/js/bootstrap.min.js"></script>
-    <script src="new/bootstrap/js/angular.min.js"></script>
-    <script src="scripts/app.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    $routeProvider
+      .otherwise({
+        redirectTo: '/'
+      });
 
-      ga('create', 'UA-42947307-1', 'vudlab.com');
-      ga('send', 'pageview');
+  });
+</script>
 
-    </script>
-  </body>
 </html>

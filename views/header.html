@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="#/home">VUDlab</a>
+    </div> 
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/about">About</a></li>
+        <li><a href="#/portfolio">Portfolio</a></li>
+        <li><a href="#/learn">Learn</a></li>
+        <li><a href="#/workouts">d3 Workouts</a></li>
+        <li><a href="#/events">Events</a></li>
+        <li><a href="mailto:main@vudlab.com?Subject=I%20love%20you%20guys!">Contact</a></li>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav>
+    
+<script>
+  $(".nav li").on("click", function(){
+    $(".active").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  $(".navbar-brand").on("click", function(){
+    $(".active").removeClass("active");
+    $(this).addClass("active");
+  });
+
+</script>

@@ -1,0 +1,25 @@
+.carousel-caption{
+	background: rgba(0,0,0,0.5);
+	/*height: 300px;*/
+	width: 30%;
+	left: 35%;
+}
+
+.carousel{
+	height: 40%;
+}
+
+.section{
+	padding: 10px 0;
+}
+
+body{
+	font-family: 'Fenix', serif;
+	font-size: 16px;
+}
+
+#logo2{
+/*	width: 200px;
+	height: 200px;*/
+	padding: 10px;
+}
