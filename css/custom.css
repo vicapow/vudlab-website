@@ -23,3 +23,7 @@ body{
 	height: 200px;*/
 	padding: 10px;
 }
+
+.table > tbody > tr > td {
+    max-width: 350px;
+}

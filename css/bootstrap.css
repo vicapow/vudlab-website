@@ -317,8 +317,8 @@ img {
 }
 .img-thumbnail {
   display: inline-block;
-  max-width: 100%;
-  height: auto;
+  max-width: 250px;
+  max-height: 200px;
   padding: 4px;
   line-height: 1.428571429;
   background-color: #fff;
