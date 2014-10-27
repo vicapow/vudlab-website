@@ -31,11 +31,8 @@
   text-anchor: end;
 }
 
-#chord{
-  height: 600px;
-}
-
 #chart{
+  height: 600px;
   border-radius: 100px;
   background: #111;
 }
